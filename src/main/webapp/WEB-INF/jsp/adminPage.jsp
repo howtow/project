@@ -1,0 +1,93 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: user
+  Date: 2022/5/9
+  Time: 下午 11:29
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+<link href="${contextRoot}/css/adminPage.css" rel="stylesheet">
+<html>
+<head>
+    <title>登錄頁面</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+<div class="sidebar" >
+    <div class="logo_content">
+        <img src="<c:url value="${pageContext.request.contextPath}/profile.png"/>
+        <!-- <i class='bx bx-menu' id="btn"></i> -->
+    </div>
+    <ul class="nav-list">
+        <!-- 搜尋和Icon (目前應該還用不到，留好看的)-->
+        <li>
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Search">
+        </li>
+        <!-- 會員管理和Icon-->
+        <li>
+            <a href="#">
+                <i class='bx bx-user'></i>
+                <span class="links_name">會員管理</span>
+            </a>
+        </li>
+        <!-- 旅館管理和Icon-->
+        <li>
+            <a href="${contextRoot}/hotelManage">
+                <i class='bx bx-home-heart'></i>
+                <span class="links_name hotel123456">旅館管理</span>
+            </a>
+        </li>
+        <!-- 房間管理和Icon-->
+        <li>
+            <a href="#">
+                <i class='bx bxs-hotel'></i>
+                <span class="links_name">房間管理</span>
+            </a>
+        </li>
+        <!-- 評論管理和Icon-->
+        <li>
+            <a href="#">
+                <i class='bx bxs-comment-detail'></i>
+                <span class="links_name">評論管理</span>
+            </a>
+        </li>
+        <!-- 設定和Icon (目前應該還用不到)-->
+        <li>
+            <a href="#">
+                <i class='bx bx-cog'></i>
+                <span class="links_name">Setting</span>
+            </a>
+        </li>
+    </ul>
+
+    <!-- ======側導覽列 結束===== -->
+
+    <!-- ======管理員資訊 開始===== -->
+    <div class="profile_content">
+        <div class="profile">
+            <div class="profile_details">
+                <!-- 管理員頭像在這改!! -->
+                <img src="image/profile.jpg" alt="">
+                <div class="name_job">
+                    <div class="name">${sessionScope.loginAdmin.adminName}</div>
+                    <div class="job">管理員</div>
+                </div>
+            </div>
+            <i class='bx bx-log-out' id="log-out"></i>
+        </div>
+    </div>
+    <!-- ======管理員資訊 結束===== -->
+</div>
+
+
+<div class="home_content">
+    <div class="text"></div>
+</div>
+
+</body>
+</html>
