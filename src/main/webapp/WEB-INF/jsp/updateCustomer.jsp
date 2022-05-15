@@ -52,6 +52,10 @@
         <div style="top:0;left: 0;" class="col-11 mt-3">
             <form:form action="${contextRoot}/postEditCustomer" modelAttribute="customerBean" method="POST">
                 <div class="form-group">
+                    <label for="customerId">ID</label>
+                    <form:input type="text" class="form-control" id="customerId" aria-describedby="emailHelp" path="userId" cssStyle="width: 300px" readonly="true"/>
+                </div>
+                <div class="form-group">
                     <label for="customerEmail">電子信箱</label>
                     <form:input type="email" class="form-control" id="customerEmail" aria-describedby="emailHelp" path="email" cssStyle="width: 300px"/>
                 </div>
