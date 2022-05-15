@@ -1,6 +1,7 @@
 package com.jerryboot.springbootdemo.model;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -37,7 +38,7 @@ public class Customer {
 	@Column(name = "Phone")
 	private Integer phone;
 	
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "Birthday", columnDefinition = "date")
 	private Date birthday;
 	
@@ -55,11 +56,12 @@ public class Customer {
 	
 	@Column(name = "State")
 	private String state;
+
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.REMOVE)
 	private Set<Comment> comment = new LinkedHashSet<Comment>();
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.REMOVE)
 	private Set<Booking> booking = new LinkedHashSet<Booking>();
 
 	public Customer() {

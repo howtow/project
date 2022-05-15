@@ -19,18 +19,18 @@ public class HotelManageController {
     @Autowired
     private HotelService hotelService;
 
+//    跳到旅館管理頁面
     @GetMapping("hotelManage")
-    public String ttttt(Model model,@RequestParam(name = "p",defaultValue = "1") Integer pageNumber){
-        Page<Hotel> page = hotelService.findByPage(pageNumber);
-        model.addAttribute("page",page);
+    public String ttttt(){
 
         return "hotelManage";
     }
 
+    // 根據頁數找到hotel
     @GetMapping("/hotelManage1")
     @ResponseBody
     public List<Hotel> hotelManage(@RequestParam(name = "p",defaultValue = "1")Integer pageNumber){
-        Page<Hotel> page = hotelService.findByPage(pageNumber);
+        Page<Hotel> page = hotelService.findHotelByPage(pageNumber);
         List<Hotel> content = page.getContent();
 
         return content;

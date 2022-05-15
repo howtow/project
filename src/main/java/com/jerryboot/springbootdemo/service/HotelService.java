@@ -17,9 +17,9 @@ public class HotelService {
     @Autowired
     private HotelDao dao;
 
-    public Page<Hotel> findByPage(Integer pageNumber) {
+    public Page<Hotel> findHotelByPage(Integer pageNumber) {
         Pageable request = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "hotelId");
-        Page<Hotel> page = dao.findAll(request);
-        return page;
+        Page<Hotel> hotels = dao.findAll(request);
+        return hotels;
     }
 }

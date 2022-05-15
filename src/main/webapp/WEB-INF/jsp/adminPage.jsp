@@ -30,7 +30,7 @@
         </li>
         <!-- 會員管理和Icon-->
         <li>
-            <a href="#">
+            <a href="${contextRoot}/customerManage">
                 <i class='bx bx-user'></i>
                 <span class="links_name">會員管理</span>
             </a>
@@ -54,6 +54,13 @@
             <a href="#">
                 <i class='bx bxs-comment-detail'></i>
                 <span class="links_name">評論管理</span>
+            </a>
+        </li>
+        <!-- 訂單管理-->
+        <li>
+            <a href="#">
+                <i class='bx bxs-comment-detail'></i>
+                <span class="links_name">訂單管理</span>
             </a>
         </li>
         <!-- 設定和Icon (目前應該還用不到)-->

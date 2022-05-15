@@ -26,6 +26,11 @@ public class PageController {
 		return "adminLoginForm";
 	}
 
+	@GetMapping("/adminPage")
+	public String adminPage(){
+		return "adminPage";
+	}
+
 
 //	@GetMapping("/hotelManage")
 //	public String hotelManage(){
