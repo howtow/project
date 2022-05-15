@@ -51,6 +51,7 @@
         </div>
         <div style="top:0;left: 0;" class="col-11 mt-3">
             <form:form action="${contextRoot}/postEditCustomer" modelAttribute="customerBean" method="POST">
+<%--                沒加id欄位編輯會變成新增--%>
                 <div class="form-group">
                     <label for="customerId">ID</label>
                     <form:input type="text" class="form-control" id="customerId" aria-describedby="emailHelp" path="userId" cssStyle="width: 300px" readonly="true"/>
