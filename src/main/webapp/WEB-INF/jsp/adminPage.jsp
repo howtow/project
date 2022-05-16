@@ -58,7 +58,7 @@
         </li>
         <!-- 訂單管理-->
         <li>
-            <a href="#">
+            <a href="${contextRoot}/bookingManage">
                 <i class='bx bxs-comment-detail'></i>
                 <span class="links_name">訂單管理</span>
             </a>

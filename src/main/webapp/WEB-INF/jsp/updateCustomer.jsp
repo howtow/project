@@ -94,7 +94,7 @@
                 </div>
                 <div class="form-group">
                     <label for="customerCreditCard">信用卡號</label>
-                    <form:input type="text" class="form-control" id="customerCreditCard"  path="creditCard" cssStyle="width: 300px"/>
+                    <form:input type="text" class="form-control" id="customerCreditCard"  path="creditCard" cssStyle="width: 300px" pattern="[0-9]{13,16}" />
                 </div>
                 <div class="form-group">
                     <label for="customerState">不知道是啥</label>
