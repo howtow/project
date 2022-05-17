@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-1">
         </div>
-        <div class="col-12" style="top:100px">
+        <div class="col-11" style="top:0px">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-primary">
                     <thead>
@@ -41,9 +41,9 @@
                         <td>信用卡</td>
                         <td>備註</td>
                         <td>入住時間</td>
-                        <td>客戶ID</td>
-                        <td>飯店ID</td>
-                        <td>房間ID</td>
+<%--                        <td>客戶ID</td>--%>
+<%--                        <td>飯店ID</td>--%>
+<%--                        <td>飯店ID</td>--%>
                         <td>編輯</td>
                         <td>刪除</td>
                     </tr>
@@ -61,11 +61,11 @@
                             <td>${oneBooking.creditCard}</td>
                             <td>${oneBooking.annotation}</td>
                             <td>${oneBooking.arriveTimes}</td>
-                            <td>${oneBooking.userId}</td>
-                            <td>${oneBooking.hotelId}</td>
-                            <td>${oneBooking.roomId}</td>
+<%--                            <td>${oneBooking.userId}</td>--%>
+<%--                            <td>${oneBooking.hotelId}</td>--%>
+<%--                            <td>${oneBooking.roomId}</td>--%>
                             <td><a href="${contextRoot}/editBooking?bookingId=${oneBooking.bookingId}">編輯</a></td>
-                            <td><a href="${contextRoot}/deleteBooking?bookingId=${oneBooking.bookingId}">刪除</a></td>
+                            <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteBooking?bookingId=${oneBooking.bookingId}">刪除</a></td>
                         </tr>
                         </tbody>
 
@@ -77,7 +77,7 @@
                             <c:choose>
 
                                 <c:when  test="${page.number != pageNumber-1 }">
-                                    <a href="${contextRoot}/customerManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
+                                    <a href="${contextRoot}/bookingManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
                                 </c:when>
 
 

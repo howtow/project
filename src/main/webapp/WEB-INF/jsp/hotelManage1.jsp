@@ -28,9 +28,6 @@
         <div class="col-1">
         </div>
         <div style="top:0;left: 0;" class="col-11">
-            <label >搜尋</label>
-            <input type="text" value="">
-            <button class="justify-content-end">新增旅館</button>
             <div class="table-responsive">
             <%--            <input type="text" value="搜尋欄位">--%>
             <table class="table table-striped table-bordered table-primary" id="hotelTable">
@@ -49,23 +46,6 @@
                     <th>刪除</th>
                 </tr>
                 </thead>
-                <c:forEach var="oneHotel" items="${hotelList}">
-                    <tbody>
-                    <tr>
-                        <td>${oneHotel.hotelId}</td>
-                        <td>${oneHotel.hotelName}</td>
-<%--                        <td>${onehotel.description}</td>--%>
-                        <td>${oneHotel.add}</td>
-                        <td>${oneHotel.tel}</td>
-                        <td>${oneHotel.serviceinfo}</td>
-                        <td>${oneHotel.totalNumberofRooms}</td>
-                        <td>${oneHotel.lowestPrice}</td>
-                        <td>${oneHotel.ceilingPrice}</td>
-                        <td><a href="${contextRoot}/editHotel?hotelId=${oneHotel.hotelId}">編輯</a></td>
-                        <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteHotel?hotelId=${oneHotel.hotelId}">刪除</a></td>
-                    </tr>
-                    </tbody>
-                </c:forEach>
 
             </table>
             </div>
@@ -79,7 +59,7 @@
                 <c:choose>
 
                     <c:when test="${page.number != pageNumber-1 }">
-                        <a href="${contextRoot}/hotelManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
+                        <a href="${contextRoot}/hotelManage1?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
                     </c:when>
 
 

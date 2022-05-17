@@ -1,5 +1,6 @@
 package com.jerryboot.springbootdemo.service;
 
+import com.jerryboot.springbootdemo.model.Booking;
 import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.model.HotelDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,32 @@ import org.springframework.transaction.annotation.Transactional;
 public class HotelService {
 
     @Autowired
-    private HotelDao dao;
+    private HotelDao hotelDao;
 
     public Page<Hotel> findHotelByPage(Integer pageNumber) {
         Pageable request = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "hotelId");
-        Page<Hotel> hotels = dao.findAll(request);
+        Page<Hotel> hotels = hotelDao.findAll(request);
         return hotels;
     }
+    //    刪除旅館
+    public void deleteHotelById(Integer id) {
+        hotelDao.deleteByHotelId(id);
+    }
+
+    //    找到旅館資料
+    public Hotel getHotelById(Integer id) {
+        Hotel hotel = hotelDao.findHotelByHotelId(id);
+        return hotel;
+    }
+
+    //    更新旅館
+    public void updateHotel(Hotel hotel) {
+         hotelDao.save(hotel);
+    }
+
+    //新增旅館
+    public void addHotel(Hotel hotel){
+        hotelDao.save(hotel);
+    }
+
 }

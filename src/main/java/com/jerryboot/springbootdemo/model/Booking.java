@@ -16,6 +16,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -48,10 +49,11 @@ public class Booking {
 	
 	@Column(name = "BookingName")
 	private String bookingName;
-	
+
+	@Email(message = "請輸入email")
 	@Column(name = "Email")
 	private String email;
-	
+
 	@Column(name = "CreditCard")
 	private String creditCard;
 	
@@ -239,13 +241,4 @@ public class Booking {
 		return builder.toString();
 	}
 
-    @Repository
-    public static interface BookingDao extends JpaRepository<Booking,Integer> {
-
-        @Query("from Booking where bookingId=:id")
-        public Booking findBookingByBookingId(@Param("id") Integer id);
-
-
-        public void deleteByBookingId(Integer id);
-    }
 }

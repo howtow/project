@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -25,7 +26,8 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "UserID")
 	private Integer userId;
-	
+
+	@Email(message = "請輸入Email")
 	@Column(name = "Email")
 	private String email;
 	
@@ -58,10 +60,10 @@ public class Customer {
 	private String state;
 
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
 	private Set<Comment> comment = new LinkedHashSet<Comment>();
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
 	private Set<Booking> booking = new LinkedHashSet<Booking>();
 
 	public Customer() {

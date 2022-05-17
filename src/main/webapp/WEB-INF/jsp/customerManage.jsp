@@ -26,7 +26,8 @@
         <div class="col-1">
         </div>
         <div  style="top:0;left: 0;" class="col-11">
-            <input type="text" value="搜尋">
+            <label >搜尋</label>
+            <input type="text" value="">
             <table  class="table table-striped table-bordered table-secondary" id="customerTable">
                 <thead>
                 <tr>
@@ -58,7 +59,7 @@
 <%--                        <td>${oneCustomer.address}</td>--%>
 <%--                        <td>${oneCustomer.creditCard}</td>--%>
                         <td><a href="${contextRoot}/editCustomer?userId=${oneCustomer.userId}">編輯</a></td>
-                        <td><a href="${contextRoot}/deleteCustomer?userId=${oneCustomer.userId}">刪除</a></td>
+                        <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteCustomer?userId=${oneCustomer.userId}">刪除</a></td>
                     </tr>
                     </tbody>
                 </c:forEach>

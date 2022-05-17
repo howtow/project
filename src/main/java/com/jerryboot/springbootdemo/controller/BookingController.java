@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.constraints.Email;
 import java.util.List;
 
 @Controller
@@ -28,6 +28,29 @@ public class BookingController {
         return "bookingManage";
     }
 
+//    跳到更新訂單頁面
+    @GetMapping("editBooking")
+    public String editBooking(@RequestParam("bookingId") Integer id,Model model){
+        Booking booking = bookingService.getBookingById(id);
+        model.addAttribute("bookingBean" ,booking);
+
+        return "updateBooking";
+
+    }
+
+//    更新訂單資料
+    @PostMapping("editPostBooking")
+    public ModelAndView editBooking(ModelAndView msv, @ModelAttribute(name = "bookingBean") Booking booking){
+        Booking booking1 = new Booking();
+
+        msv.getModel().put("bookingBean",booking1);
+
+        bookingService.updateBooking(booking1);
+        msv.setViewName("redirect:bookingManage");
+        return msv;
+    }
+
+//    刪除訂單
     @GetMapping("/deleteBooking")
     public String deleteBooking(@RequestParam(name = "bookingId") Integer id){
         bookingService.deleteBookingById(id);

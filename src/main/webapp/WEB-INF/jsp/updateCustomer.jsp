@@ -56,6 +56,7 @@
                     <label for="customerId">ID</label>
                     <form:input type="text" class="form-control" id="customerId" aria-describedby="emailHelp" path="userId" cssStyle="width: 300px" readonly="true"/>
                 </div>
+                <form:errors path="email"/>
                 <div class="form-group">
                     <label for="customerEmail">電子信箱</label>
                     <form:input type="email" class="form-control" id="customerEmail" aria-describedby="emailHelp" path="email" cssStyle="width: 300px"/>
@@ -82,11 +83,11 @@
                 </div>
                 <div class="form-group">
                     <label>性別</label>
-                    <form:input type="text" class="form-control" id="customerPhone"  path="gender" cssStyle="width: 300px"/>
-<%--                    <form:select  path="gender">--%>
-<%--                    <form:options value="男" label="男"/>--%>
-<%--                    <form:options value="女" label="女"/>--%>
-<%--                    </form:select>--%>
+<%--                    <form:input type="text" class="form-control" id="customerPhone"  path="gender" cssStyle="width: 300px"/>--%>
+                    <form:select  path="gender">
+                    <form:option value="男" label="男"/>
+                    <form:option value="女" label="女"/>
+                    </form:select>
                 </div>
                 <div class="form-group">
                     <label for="customerAddress">地址</label>
@@ -97,8 +98,7 @@
                     <form:input type="text" class="form-control" id="customerCreditCard"  path="creditCard" cssStyle="width: 300px" pattern="[0-9]{13,16}" />
                 </div>
                 <div class="form-group">
-                    <label for="customerState">不知道是啥</label>
-                    <form:input type="text" class="form-control" id="customerState"  path="state" cssStyle="width: 300px"/>
+                    <form:input type="hidden" class="form-control" id="customerState"  path="state" cssStyle="width: 300px"/>
                 </div>
 
                 <input type="submit" value="送出">

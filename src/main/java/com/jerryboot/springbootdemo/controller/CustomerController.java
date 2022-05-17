@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -38,9 +40,11 @@ public class CustomerController {
 
     //更新會員資料
     @PostMapping("postEditCustomer")
-    public String postCustomer(@ModelAttribute("customerBean") Customer customer){
+    public String editCustomer(@ModelAttribute("customerBean") Customer customer){
+
         customerService.updateCustomer(customer);
         return "redirect:customerManage";
+
     }
 
     //刪除會員

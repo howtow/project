@@ -23,9 +23,10 @@ public class CustomerService {
     }
 
 
-//    更新會員
+    //    更新會員
     public void updateCustomer(Customer customer) {
-        customerDao.saveAndFlush(customer);
+
+        customerDao.save(customer);
     }
 
     public Customer getCustomerById(Integer id) {
@@ -33,11 +34,11 @@ public class CustomerService {
         return customer;
     }
 
-    public void deleteCustomer(Integer id){
+    public void deleteCustomer(Integer id) {
         customerDao.deleteByUserId(id);
     }
 
-    }
+}
 
 
 
