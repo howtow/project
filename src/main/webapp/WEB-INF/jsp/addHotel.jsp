@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: iii
-  Date: 2022/5/13
-  Time: 下午 04:01
+  Date: 2022/5/18
+  Time: 下午 02:22
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,11 +12,13 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>更新旅館資料</title>
+    <title>新增旅館</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+
     <style>
         html,body{
             margin: 0px;
@@ -37,7 +39,7 @@
 <body>
 <div class="container-fluid header ">
     <div class="row">
-        <h1 class="info">旅館資料</h1>
+        <h1 class="info">新增旅館資料</h1>
     </div>
 </div>
 <div class="container">
@@ -45,11 +47,11 @@
         <div class="col-1">
         </div>
         <div style="top:0;left: 0;" class="col-11 mt-3">
-            <form:form action="${contextRoot}/postEditHotel" modelAttribute="hotelBean" method="POST">
+            <form:form action="${contextRoot}/addHotel" modelAttribute="addHotelBean" method="POST">
                 <%--                沒加id欄位編輯會變成新增--%>
                 <div class="form-group">
-                    <label>旅館ID</label>
-                    <form:input type="text" class="form-control"  path="hotelId" cssStyle="width: 300px" readonly="true"/>
+<%--                    <label>旅館ID</label>--%>
+                    <form:input type="hidden" class="form-control"  path="hotelId" cssStyle="width: 300px" readonly="true"/>
                 </div>
                 <div class="form-group">
                     <label>旅館名字</label>
@@ -109,6 +111,7 @@
             </form:form>
         </div>
     </div>
-    </div>
+</div>
+
 </body>
 </html>

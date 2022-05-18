@@ -31,12 +31,20 @@ public class HotelManageController {
 
     }
 
+    //跳到新增旅館頁面
+    @GetMapping("hotel/add")
+    public String addHotel(Model model){
+        model.addAttribute("addHotelBean" ,new Hotel());
+
+        return "addHotel";
+    }
+
     //新增旅館
-    @PostMapping("/hotel/add")
+    @PostMapping("/addHotel")
     public String postHotel(@ModelAttribute(name = "addHotelBean") Hotel hotel){
         hotelService.addHotel(hotel);
 
-        return "hotelManage";
+        return "redirect:hotelManage";
     }
 
 

@@ -10,7 +10,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
-<link href="${contextRoot}/css/adminPage.css" rel="stylesheet">
 <html>
 <head>
     <title>更新訂單</title>

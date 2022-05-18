@@ -29,11 +29,12 @@
         </div>
         <div style="top:0;left: 0;" class="col-11">
             <div>
-                <form:form  action="${contextRoot}/keyword1"  method="get">
-                    <form:input type="text" value="" name="keyword" path="">
-                    <input type="submit" value="搜尋">
-                    <button class="justify-content-end">新增旅館</button>
-                </form:form>
+
+                <button class="justify-content-end"><a href="${contextRoot}/hotel/add">新增旅館</a></button>
+<%--                <form:form action="${contextRoot}/keyword1" method="get">--%>
+<%--                    <form:input type="text" value="" name="keyword" path="hotelId"/>--%>
+<%--                    <input type="submit" value="搜尋">--%>
+<%--                </form:form>--%>
 
             </div>
             <div class="table-responsive">
