@@ -6,6 +6,7 @@ import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -65,7 +66,17 @@ public class HotelManageController {
         return "redirect:hotelManage";
     }
 
+    @GetMapping("keyword1")
+    public String listByKeyword(Model model, @RequestParam(name = "p",defaultValue = "1")Integer pageNumber,
+                                @RequestParam(name = "keyword") String keyword){
 
+        Page<Hotel> hotelByKeyowrd = hotelService.findHotelByKeyowrd(pageNumber, keyword);
+        List<Hotel> list = hotelByKeyowrd.getContent();
+        model.addAttribute("hotelList",hotelByKeyowrd);
+        model.addAttribute("page",list);
+        model.addAttribute("keyword",keyword);
+        return "hotelManage";
+    }
 
 
 

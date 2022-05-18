@@ -7,271 +7,271 @@ import java.util.Set;
 @Entity
 @Table(name = "Hotel")
 public class Hotel {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "HotelID")
-	private Integer hotelId;
-	
-	@Column(name = "Name")
-	private String hotelName;
-	
-	@Column(name = "Description")
-	private String description;
-	
-	@Column(name = "Address")
-	private String add;
-	
-	@Column(name = "Region")
-	private String region;
-	
-	@Column(name = "Town")
-	private String town;
-	
-	@Column(name = "Tel")
-	private String Tel;
-	
-	@Column(name = "Pics")
-	private String pics;
-	
-	@Column(name = "PicDIscribe")
-	private String picDIscribe;
-	
-	@Column(name = "Serviceinfo")
-	private String serviceinfo;
-	
-	@Column(name = "Parkinginfo")
-	private String parkinginfo;
-	
-	@Column(name = "TotalNumberofRooms")
-	private Integer totalNumberofRooms;
-	
-	@Column(name = "LowestPrice")
-	private Integer lowestPrice;
-	
-	@Column(name = "CeilingPrice")
-	private Integer ceilingPrice;
-	
-	@Column(name = "HotelAccount")
-	private String HotelAccount;
-	
-	@Column(name = "HotelPassword")
-	private String HotelPassword;
-	
-	@Column(name = "AverageRating")
-	private double AverageRating;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = CascadeType.ALL)
-	private Set<Room> room = new LinkedHashSet<Room>();
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = CascadeType.ALL)
-	private Set<Comment> comment = new LinkedHashSet<Comment>();
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = CascadeType.ALL)
-	private Set<Booking> booking = new LinkedHashSet<Booking>();
-	
-	public Hotel() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "HotelID")
+    private Integer hotelId;
 
-	public Integer getHotelId() {
-		return hotelId;
-	}
+    @Column(name = "Name")
+    private String hotelName;
 
-	public void setHotelId(Integer hotelId) {
-		this.hotelId = hotelId;
-	}
+    @Column(name = "Description")
+    private String description;
 
-	public String getHotelName() {
-		return hotelName;
-	}
+    @Column(name = "Address")
+    private String add;
 
-	public void setHotelName(String hotelName) {
-		this.hotelName = hotelName;
-	}
+    @Column(name = "Region")
+    private String region;
 
-	public String getDescription() {
-		return description;
-	}
+    @Column(name = "Town")
+    private String town;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    @Column(name = "Tel")
+    private String Tel;
 
-	public String getAdd() {
-		return add;
-	}
+    @Column(name = "Pics")
+    private String pics;
 
-	public void setAdd(String add) {
-		this.add = add;
-	}
+    @Column(name = "PicDIscribe")
+    private String picDIscribe;
 
-	public String getRegion() {
-		return region;
-	}
+    @Column(name = "Serviceinfo")
+    private String serviceinfo;
 
-	public void setRegion(String region) {
-		this.region = region;
-	}
+    @Column(name = "Parkinginfo")
+    private String parkinginfo;
 
-	public String getTown() {
-		return town;
-	}
+    @Column(name = "TotalNumberofRooms")
+    private Integer totalNumberofRooms;
 
-	public void setTown(String town) {
-		this.town = town;
-	}
+    @Column(name = "LowestPrice")
+    private Integer lowestPrice;
 
-	public String getTel() {
-		return Tel;
-	}
+    @Column(name = "CeilingPrice")
+    private Integer ceilingPrice;
 
-	public void setTel(String tel) {
-		Tel = tel;
-	}
+    @Column(name = "HotelAccount")
+    private String HotelAccount;
 
-	public String getPics() {
-		return pics;
-	}
+    @Column(name = "HotelPassword")
+    private String HotelPassword;
 
-	public void setPics(String pics) {
-		this.pics = pics;
-	}
+    @Column(name = "AverageRating")
+    private double AverageRating;
 
-	public String getPicDIscribe() {
-		return picDIscribe;
-	}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = CascadeType.ALL)
+    private Set<Room> room = new LinkedHashSet<Room>();
 
-	public void setPicDIscribe(String picDIscribe) {
-		this.picDIscribe = picDIscribe;
-	}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = CascadeType.ALL)
+    private Set<Comment> comment = new LinkedHashSet<Comment>();
 
-	public String getServiceinfo() {
-		return serviceinfo;
-	}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = CascadeType.ALL)
+    private Set<Booking> booking = new LinkedHashSet<Booking>();
 
-	public void setServiceinfo(String serviceinfo) {
-		this.serviceinfo = serviceinfo;
-	}
+    public Hotel() {
+    }
 
-	public String getParkinginfo() {
-		return parkinginfo;
-	}
+    public Integer getHotelId() {
+        return hotelId;
+    }
 
-	public void setParkinginfo(String parkinginfo) {
-		this.parkinginfo = parkinginfo;
-	}
+    public void setHotelId(Integer hotelId) {
+        this.hotelId = hotelId;
+    }
 
-	public Integer getTotalNumberofRooms() {
-		return totalNumberofRooms;
-	}
+    public String getHotelName() {
+        return hotelName;
+    }
 
-	public void setTotalNumberofRooms(Integer totalNumberofRooms) {
-		this.totalNumberofRooms = totalNumberofRooms;
-	}
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
 
-	public Integer getLowestPrice() {
-		return lowestPrice;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setLowestPrice(Integer lowestPrice) {
-		this.lowestPrice = lowestPrice;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Integer getCeilingPrice() {
-		return ceilingPrice;
-	}
+    public String getAdd() {
+        return add;
+    }
 
-	public void setCeilingPrice(Integer ceilingPrice) {
-		this.ceilingPrice = ceilingPrice;
-	}
+    public void setAdd(String add) {
+        this.add = add;
+    }
 
-	public String getHotelAccount() {
-		return HotelAccount;
-	}
+    public String getRegion() {
+        return region;
+    }
 
-	public void setHotelAccount(String hotelAccount) {
-		HotelAccount = hotelAccount;
-	}
+    public void setRegion(String region) {
+        this.region = region;
+    }
 
-	public String getHotelPassword() {
-		return HotelPassword;
-	}
+    public String getTown() {
+        return town;
+    }
 
-	public void setHotelPassword(String hotelPassword) {
-		HotelPassword = hotelPassword;
-	}
+    public void setTown(String town) {
+        this.town = town;
+    }
 
-	public double getAverageRating() {
-		return AverageRating;
-	}
+    public String getTel() {
+        return Tel;
+    }
 
-	public void setAverageRating(double averageRating) {
-		AverageRating = averageRating;
-	}
+    public void setTel(String tel) {
+        Tel = tel;
+    }
 
-	public Set<Room> getRoom() {
-		return room;
-	}
+    public String getPics() {
+        return pics;
+    }
 
-	public void setRoom(Set<Room> room) {
-		this.room = room;
-	}
-	
-	public Set<Comment> getComment() {
-		return comment;
-	}
+    public void setPics(String pics) {
+        this.pics = pics;
+    }
 
-	public void setComment(Set<Comment> comment) {
-		this.comment = comment;
-	}
+    public String getPicDIscribe() {
+        return picDIscribe;
+    }
 
-	public Set<Booking> getBooking() {
-		return booking;
-	}
+    public void setPicDIscribe(String picDIscribe) {
+        this.picDIscribe = picDIscribe;
+    }
 
-	public void setBooking(Set<Booking> booking) {
-		this.booking = booking;
-	}
+    public String getServiceinfo() {
+        return serviceinfo;
+    }
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Hotel [hotelId=");
-		builder.append(hotelId);
-		builder.append(", hotelName=");
-		builder.append(hotelName);
-		builder.append(", description=");
-		builder.append(description);
-		builder.append(", add=");
-		builder.append(add);
-		builder.append(", region=");
-		builder.append(region);
-		builder.append(", town=");
-		builder.append(town);
-		builder.append(", Tel=");
-		builder.append(Tel);
-		builder.append(", pics=");
-		builder.append(pics);
-		builder.append(", picDIscribe=");
-		builder.append(picDIscribe);
-		builder.append(", serviceinfo=");
-		builder.append(serviceinfo);
-		builder.append(", parkinginfo=");
-		builder.append(parkinginfo);
-		builder.append(", totalNumberofRooms=");
-		builder.append(totalNumberofRooms);
-		builder.append(", lowestPrice=");
-		builder.append(lowestPrice);
-		builder.append(", ceilingPrice=");
-		builder.append(ceilingPrice);
-		builder.append(", HotelAccount=");
-		builder.append(HotelAccount);
-		builder.append(", HotelPassword=");
-		builder.append(HotelPassword);
-		builder.append(", AverageRating=");
-		builder.append(AverageRating);
-		builder.append("]");
-		return builder.toString();
-	}
+    public void setServiceinfo(String serviceinfo) {
+        this.serviceinfo = serviceinfo;
+    }
+
+    public String getParkinginfo() {
+        return parkinginfo;
+    }
+
+    public void setParkinginfo(String parkinginfo) {
+        this.parkinginfo = parkinginfo;
+    }
+
+    public Integer getTotalNumberofRooms() {
+        return totalNumberofRooms;
+    }
+
+    public void setTotalNumberofRooms(Integer totalNumberofRooms) {
+        this.totalNumberofRooms = totalNumberofRooms;
+    }
+
+    public Integer getLowestPrice() {
+        return lowestPrice;
+    }
+
+    public void setLowestPrice(Integer lowestPrice) {
+        this.lowestPrice = lowestPrice;
+    }
+
+    public Integer getCeilingPrice() {
+        return ceilingPrice;
+    }
+
+    public void setCeilingPrice(Integer ceilingPrice) {
+        this.ceilingPrice = ceilingPrice;
+    }
+
+    public String getHotelAccount() {
+        return HotelAccount;
+    }
+
+    public void setHotelAccount(String hotelAccount) {
+        HotelAccount = hotelAccount;
+    }
+
+    public String getHotelPassword() {
+        return HotelPassword;
+    }
+
+    public void setHotelPassword(String hotelPassword) {
+        HotelPassword = hotelPassword;
+    }
+
+    public double getAverageRating() {
+        return AverageRating;
+    }
+
+    public void setAverageRating(double averageRating) {
+        AverageRating = averageRating;
+    }
+
+    public Set<Room> getRoom() {
+        return room;
+    }
+
+    public void setRoom(Set<Room> room) {
+        this.room = room;
+    }
+
+    public Set<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(Set<Comment> comment) {
+        this.comment = comment;
+    }
+
+    public Set<Booking> getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Set<Booking> booking) {
+        this.booking = booking;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Hotel [hotelId=");
+        builder.append(hotelId);
+        builder.append(", hotelName=");
+        builder.append(hotelName);
+        builder.append(", description=");
+        builder.append(description);
+        builder.append(", add=");
+        builder.append(add);
+        builder.append(", region=");
+        builder.append(region);
+        builder.append(", town=");
+        builder.append(town);
+        builder.append(", Tel=");
+        builder.append(Tel);
+        builder.append(", pics=");
+        builder.append(pics);
+        builder.append(", picDIscribe=");
+        builder.append(picDIscribe);
+        builder.append(", serviceinfo=");
+        builder.append(serviceinfo);
+        builder.append(", parkinginfo=");
+        builder.append(parkinginfo);
+        builder.append(", totalNumberofRooms=");
+        builder.append(totalNumberofRooms);
+        builder.append(", lowestPrice=");
+        builder.append(lowestPrice);
+        builder.append(", ceilingPrice=");
+        builder.append(ceilingPrice);
+        builder.append(", HotelAccount=");
+        builder.append(HotelAccount);
+        builder.append(", HotelPassword=");
+        builder.append(HotelPassword);
+        builder.append(", AverageRating=");
+        builder.append(AverageRating);
+        builder.append("]");
+        return builder.toString();
+    }
 
 }

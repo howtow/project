@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 @Service
 @Transactional
 public class HotelService {
@@ -44,4 +45,13 @@ public class HotelService {
         hotelDao.save(hotel);
     }
 
+
+    public Page<Hotel> findHotelByKeyowrd(Integer pageNumber,String keyword){
+        Pageable request = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "hotelId");
+        if(keyword != null){
+            Page<Hotel> byKeyword = hotelDao.findAllByKeyword(keyword, request);
+            return byKeyword;
+        }
+        return hotelDao.findAll(request);
+    }
 }

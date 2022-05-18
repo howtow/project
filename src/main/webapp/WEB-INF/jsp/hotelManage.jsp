@@ -28,46 +28,52 @@
         <div class="col-1">
         </div>
         <div style="top:0;left: 0;" class="col-11">
-            <label >搜尋</label>
-            <input type="text" value="">
-            <button class="justify-content-end">新增旅館</button>
-            <div class="table-responsive">
-            <%--            <input type="text" value="搜尋欄位">--%>
-            <table class="table table-striped table-bordered table-primary" id="hotelTable">
-                <thead>
-                <tr>
-                    <th>id</th>
-                    <th>旅館</th>
-                    <%--                    <th>描述</th>--%>
-                    <th>地址</th>
-                    <th>電話</th>
-                    <th>服務</th>
-                    <th>房間數</th>
-                    <th>最低價格</th>
-                    <th>最高價</th>
-                    <th>編輯</th>
-                    <th>刪除</th>
-                </tr>
-                </thead>
-                <c:forEach var="oneHotel" items="${hotelList}">
-                    <tbody>
-                    <tr>
-                        <td>${oneHotel.hotelId}</td>
-                        <td>${oneHotel.hotelName}</td>
-<%--                        <td>${onehotel.description}</td>--%>
-                        <td>${oneHotel.add}</td>
-                        <td>${oneHotel.tel}</td>
-                        <td>${oneHotel.serviceinfo}</td>
-                        <td>${oneHotel.totalNumberofRooms}</td>
-                        <td>${oneHotel.lowestPrice}</td>
-                        <td>${oneHotel.ceilingPrice}</td>
-                        <td><a href="${contextRoot}/editHotel?hotelId=${oneHotel.hotelId}">編輯</a></td>
-                        <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteHotel?hotelId=${oneHotel.hotelId}">刪除</a></td>
-                    </tr>
-                    </tbody>
-                </c:forEach>
+            <div>
+                <form:form  action="${contextRoot}/keyword1"  method="get">
+                    <form:input type="text" value="" name="keyword" path="">
+                    <input type="submit" value="搜尋">
+                    <button class="justify-content-end">新增旅館</button>
+                </form:form>
 
-            </table>
+            </div>
+            <div class="table-responsive">
+                <%--            <input type="text" value="搜尋欄位">--%>
+                <table class="table table-striped table-bordered table-primary" id="hotelTable">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>旅館</th>
+                        <%--                    <th>描述</th>--%>
+                        <th>地址</th>
+                        <th>電話</th>
+                        <th>服務</th>
+                        <th>房間數</th>
+                        <th>最低價格</th>
+                        <th>最高價</th>
+                        <th>編輯</th>
+                        <th>刪除</th>
+                    </tr>
+                    </thead>
+                    <c:forEach var="oneHotel" items="${hotelList}">
+                        <tbody>
+                        <tr>
+                            <td>${oneHotel.hotelId}</td>
+                            <td>${oneHotel.hotelName}</td>
+                                <%--                        <td>${onehotel.description}</td>--%>
+                            <td>${oneHotel.add}</td>
+                            <td>${oneHotel.tel}</td>
+                            <td>${oneHotel.serviceinfo}</td>
+                            <td>${oneHotel.totalNumberofRooms}</td>
+                            <td>${oneHotel.lowestPrice}</td>
+                            <td>${oneHotel.ceilingPrice}</td>
+                            <td><a href="${contextRoot}/editHotel?hotelId=${oneHotel.hotelId}">編輯</a></td>
+                            <td><a onclick="return confirm('確認刪除')"
+                                   href="${contextRoot}/deleteHotel?hotelId=${oneHotel.hotelId}">刪除</a></td>
+                        </tr>
+                        </tbody>
+                    </c:forEach>
+
+                </table>
             </div>
         </div>
     </div>
@@ -109,37 +115,37 @@
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
 <%--<script src="${contextRoot}/js/hotelManage.js"></script>--%>
-<script>
-    $(document).ready(function () {
+<%--<script>--%>
+<%--    $(document).ready(function () {--%>
 
-        $.ajax({
-            url: "http://localhost:8080/Booking/hotelManage1",
-            contentType: 'application/json; charset=UTF-8',
-            dataType: 'json',
-            method: 'GET',
-            success: function (data) {
-                let hotel_data = '';
-                $.each(data, function (key, value) {
-                    hotel_data += '<tr>';
-                    hotel_data += '<td>' + value.hotelId + '</td>';
-                    hotel_data += '<td>' + value.hotelName + '</td>';
-                    // hotel_data += '<td>' + value.description + '</td>';
-                    hotel_data += '<td>' + value.add + '</td>';
-                    hotel_data += '<td>' + value.tel + '</td>';
-                    hotel_data += '<td>' + value.serviceinfo + '</td>';
-                    hotel_data += '<td>' + value.totalNumberofRooms + '</td>';
-                    hotel_data += '<td>' + value.lowestPrice + '</td>';
-                    hotel_data += '<td>' + value.ceilingPrice + '</td>';
-                    hotel_data += '<td>' + `<a href="${contextRoot}/editHotel">` + '編輯' + '</a>' + '</td>';
-                    hotel_data += '<td>' + '<a href="${contextRoot}/deleteHotel" onclick="return confirm("確認刪除嗎?")">' + '刪除' + '</a>' + '</td>';
-                    hotel_data += '</tr>';
-                })
-                $('#hotelTable').append(hotel_data);
-            }
+<%--        $.ajax({--%>
+<%--            url: "http://localhost:8080/Booking/hotelManage1",--%>
+<%--            contentType: 'application/json; charset=UTF-8',--%>
+<%--            dataType: 'json',--%>
+<%--            method: 'GET',--%>
+<%--            success: function (data) {--%>
+<%--                let hotel_data = '';--%>
+<%--                $.each(data, function (key, value) {--%>
+<%--                    hotel_data += '<tr>';--%>
+<%--                    hotel_data += '<td>' + value.hotelId + '</td>';--%>
+<%--                    hotel_data += '<td>' + value.hotelName + '</td>';--%>
+<%--                    // hotel_data += '<td>' + value.description + '</td>';--%>
+<%--                    hotel_data += '<td>' + value.add + '</td>';--%>
+<%--                    hotel_data += '<td>' + value.tel + '</td>';--%>
+<%--                    hotel_data += '<td>' + value.serviceinfo + '</td>';--%>
+<%--                    hotel_data += '<td>' + value.totalNumberofRooms + '</td>';--%>
+<%--                    hotel_data += '<td>' + value.lowestPrice + '</td>';--%>
+<%--                    hotel_data += '<td>' + value.ceilingPrice + '</td>';--%>
+<%--                    hotel_data += '<td>' + `<a href="${contextRoot}/editHotel">` + '編輯' + '</a>' + '</td>';--%>
+<%--                    hotel_data += '<td>' + '<a href="${contextRoot}/deleteHotel" onclick="return confirm("確認刪除嗎?")">' + '刪除' + '</a>' + '</td>';--%>
+<%--                    hotel_data += '</tr>';--%>
+<%--                })--%>
+<%--                $('#hotelTable').append(hotel_data);--%>
+<%--            }--%>
 
-        })
-    })
-</script>
+<%--        })--%>
+<%--    })--%>
+<%--</script>--%>
 
 </body>
 </html>

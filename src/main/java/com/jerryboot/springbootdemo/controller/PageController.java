@@ -2,6 +2,7 @@ package com.jerryboot.springbootdemo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
@@ -29,6 +30,13 @@ public class PageController {
 	@GetMapping("/adminPage")
 	public String adminPage(){
 		return "adminPage";
+	}
+
+	@GetMapping("/updateHotel")
+	public ModelAndView hotel(ModelAndView modelAndView){
+
+		modelAndView.setViewName("updateHotel");
+		return modelAndView;
 	}
 
 
