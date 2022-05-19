@@ -24,10 +24,10 @@ public class RoomService {
     public void deleteRoom(Integer id){
         roomDao.deleteRoomByRoomId(id);
     }
-    public Page<Room> roomList(Integer pageNumber,String sortField,String sortDir,String keyword){
-        Sort sort = Sort.by(sortField);
-        sort = sortDir.equals("asc")? sort.ascending():sort.descending();
-        Pageable pageable = PageRequest.of(pageNumber - 1, 10, sort);
+    public Page<Room> roomList(Integer pageNumber,String keyword){
+//        Sort sort = Sort.by(sortField);
+//        sort = sortDir.equals("asc")? sort.ascending():sort.descending();
+        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC,"roomId");
         if(keyword !=null){
             return roomDao.roomList(keyword,pageable);
         }
