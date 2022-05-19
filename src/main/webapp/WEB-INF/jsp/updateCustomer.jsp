@@ -11,7 +11,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 <link href="${contextRoot}/css/adminPage.css" rel="stylesheet">
-<%--<jsp:include page="${contextRoot}/adminPage.jsp"/>--%>
+<jsp:include page="adminPage.jsp"/>
 <html>
 <head>
     <title>更新會員資料</title>
@@ -49,7 +49,9 @@
 
 <div class="container">
     <div class="row">
-        <div style="top:0;left: 0;" class="col-6 mt-3">
+        <div class="col-1">
+        </div>
+        <div style="top:0;left: 0;" class="col-5 mt-3">
             <form:form action="${contextRoot}/postEditCustomer" modelAttribute="customerBean" method="POST">
                 <%--                沒加id欄位編輯會變成新增--%>
             <div class="form-group">
@@ -84,7 +86,7 @@
                             cssStyle="width: 300px"/>
             </div>
         </div>
-        <div style="top:0;left: 0;" class="col-6 mt-3">
+        <div style="top:0;left: 0;" class="col-5 mt-3">
             <div class="form-group">
                 <label for="customerPhone">國家</label>
                 <form:input type="text" class="form-control" id="customerPhone" path="nationality"

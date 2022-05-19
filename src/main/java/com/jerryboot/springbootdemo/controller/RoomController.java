@@ -34,7 +34,7 @@ public class RoomController {
 //        model.addAttribute("sortDir", sortDir);
 //        model.addAttribute("sortField", sortField);
 //        model.addAttribute("keyword",keyword);
-        mav.getModel().put("keyword",keyword);
+//        mav.getModel().put("keyword",keyword);
 //        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 //        model.addAttribute("reverseSortDir",reverseSortDir);
         return mav ;
