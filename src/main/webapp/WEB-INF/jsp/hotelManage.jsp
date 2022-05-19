@@ -15,7 +15,7 @@
 <jsp:include page="adminPage.jsp"/>
 <html>
 <head>
-    <title>房間管理</title>
+    <title>旅館管理</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"

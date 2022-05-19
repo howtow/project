@@ -20,7 +20,7 @@
 <body>
 <div class="sidebar">
     <div class="logo_content">
-        <img src="src/main/webapp/image/profile.jpg"/>
+        <img src="${contextRoot}/image/logo.png"/>
         <!-- <i class='bx bx-menu' id="btn"></i> -->
     </div>
     <ul class="nav-list">
@@ -45,19 +45,19 @@
         </li>
         <!-- 房間管理和Icon-->
         <li>
-            <a href="#sublist" data-toggle="collapse" id="dropdown">
+            <a href="${contextRoot}/roomManage" >
                 <i class='bx bxs-hotel'></i>
                 <span class="links_name">房間管理</span>
             </a>
 <%--            子連結--%>
-            <ul id="sublist" class="list-unstyled collapse">
-                <li>
-                    <a href="#">新增房間</a>
-                </li>
-                <li>
-                    <a href="#">房間列表</a>
-                </li>
-            </ul>
+<%--            <ul id="sublist" class="list-unstyled collapse">--%>
+<%--                <li>--%>
+<%--                    <a href="#">新增房間</a>--%>
+<%--                </li>--%>
+<%--                <li>--%>
+<%--                    <a href="#">房間列表</a>--%>
+<%--                </li>--%>
+<%--            </ul>--%>
         </li>
         <!-- 評論管理和Icon-->
         <li>

@@ -12,7 +12,7 @@ public interface RoomDao extends JpaRepository<Room,Integer> {
     public void deleteRoomByRoomId(Integer id);
 
     @Query("select r from Room r where "
-    +"concat(r.roomId, r.roomName, r.price, r.tag)"+
+    +"concat(r.roomName, r.price, r.tag, r.description, r.roomId)"+
     "like %?1%")
     public Page<Room> roomList(String keyword, Pageable pageable);
 }
