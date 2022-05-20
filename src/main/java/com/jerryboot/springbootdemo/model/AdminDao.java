@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface AdminDao extends JpaRepository<Admin,Integer> {
 
     @Query("from Admin where adminEmail=:email and password=:password")
-    public Admin findByAdminEmailAndPassword(@Param("email") String adminEmail,@Param("password") String password);
+    Admin findByAdminEmailAndPassword(@Param("email") String adminEmail,@Param("password") String password);
 }

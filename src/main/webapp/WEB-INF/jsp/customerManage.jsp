@@ -26,8 +26,11 @@
         <div class="col-1">
         </div>
         <div  style="top:0;left: 0;" class="col-11">
-            <label >搜尋</label>
-            <input type="text" value="">
+            <form action="customerManage" >
+                <label >搜尋</label>
+                <input type="text" name="customerKeyword" >
+                <input type="submit" >
+            </form>
             <table  class="table table-striped table-bordered table-secondary" id="customerTable">
                 <thead>
                 <tr>
@@ -70,7 +73,7 @@
                         <c:choose>
 
                             <c:when  test="${page.number != pageNumber-1 }">
-                                <a href="${contextRoot}/customerManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
+                                <a href="${contextRoot}/customerManage?p=${pageNumber}&customerKeyword=${customerKeyword}"><c:out value="${pageNumber}"></c:out></a>
                             </c:when>
 
 

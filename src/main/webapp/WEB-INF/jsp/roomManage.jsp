@@ -29,7 +29,7 @@
         <div  style="top:0;left: 0;" class="col-11">
             <form action="roomManage" >
             <label >搜尋</label>
-            <input type="text" name="keyword" >
+            <input type="text" name="roomKeyword" >
             <input type="submit" >
             </form>
             <table  class="table table-striped table-bordered table-secondary" id="roomTable">
@@ -68,7 +68,7 @@
                         <c:choose>
 
                             <c:when  test="${page.number != pageNumber-1 }">
-                                <a href="${contextRoot}/roomManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
+                                <a href="${contextRoot}/roomManage?p=${pageNumber}&roomKeyword=${roomKeyword}"><c:out value="${pageNumber}"></c:out></a>
                             </c:when>
 
 
@@ -78,7 +78,7 @@
 
                         </c:choose>
                         <c:if test="${pageNumber != page.totalPages}">
-
+                            |
                         </c:if>
 
                     </c:forEach>

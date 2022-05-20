@@ -1,5 +1,6 @@
 package com.jerryboot.springbootdemo.controller;
 
+import com.jerryboot.springbootdemo.model.Customer;
 import com.jerryboot.springbootdemo.model.Room;
 import com.jerryboot.springbootdemo.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,41 +24,49 @@ public class RoomController {
 
     @GetMapping("/roomManage")
     public ModelAndView roomList(ModelAndView mav, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
-                                 @Param("keyword") String keyword){
+                                 @RequestParam(name = "roomKeyword",defaultValue = "") String keyword){
         Page<Room> page = roomService.roomList(pageNumber, keyword);
 
         List<Room> roomList = page.getContent();
         mav.getModel().put("page",page);
         mav.getModel().put("roomList", roomList);
+        mav.getModel().put("roomKeyword",keyword);
+        mav.setViewName("roomManage");
 //        model.addAttribute("page", page);
 //        model.addAttribute("roomList", roomList);
 //        model.addAttribute("sortDir", sortDir);
 //        model.addAttribute("sortField", sortField);
 //        model.addAttribute("keyword",keyword);
-//        mav.getModel().put("keyword",keyword);
 //        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 //        model.addAttribute("reverseSortDir",reverseSortDir);
+
         return mav ;
     }
 
-    @GetMapping("/roomManage2")
-    public ModelAndView roomList2(ModelAndView mav,@RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
-                                  @ModelAttribute("qqq") String key){
-
-        return mav;
+    //跳到更新房間頁面
+    @GetMapping("/editRoom")
+    public String editRoom(Model model,@RequestParam("roomId") Integer id){
+        Room room = roomService.getRoomById(id);
+        model.addAttribute("roomBean",room);
+        return "updateRoom";
     }
 
-    @GetMapping("roomManage1")
-    @ResponseBody
-    public List<Room> roomList1(Model model, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
-                           @RequestParam("keyword") String keyword){
-        Page<Room> page = roomService.roomList(pageNumber, keyword);
+    //更新房間資料
+    @PostMapping("postEditRoom")
+    public String editCustomer(@ModelAttribute("roomBean") Room room){
 
-        List<Room> roomList = page.getContent();
-        model.addAttribute("page", page);
-        model.addAttribute("roomList", roomList);
-        model.addAttribute("keyword",keyword);
+        roomService.updateRoom(room);
+        return "redirect:roomManage";
 
-        return roomList ;
     }
+
+    //刪除房間
+    @GetMapping("deleteRoom")
+    public String deleteCustomer(@RequestParam("roomId") Integer id){
+        roomService.deleteRoom(id);
+
+        return "redirect:roomManage";
+    }
+
+
 }

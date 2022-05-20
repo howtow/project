@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 public  interface BookingDao extends JpaRepository<Booking,Integer> {
 
     @Query("from Booking where bookingId=:id")
-    public Booking findBookingByBookingId(@Param("id") Integer id);
+    Booking findBookingByBookingId(@Param("id") Integer id);
 
 
-    public void deleteByBookingId(Integer id);
+    void deleteByBookingId(Integer id);
 }

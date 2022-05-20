@@ -17,20 +17,25 @@ public class RoomService {
     @Autowired
     private RoomDao roomDao;
 
-    public void saveRoom(Room room){
+    public void updateRoom(Room room) {
         roomDao.save(room);
     }
 
-    public void deleteRoom(Integer id){
+    public void deleteRoom(Integer id) {
         roomDao.deleteRoomByRoomId(id);
     }
-    public Page<Room> roomList(Integer pageNumber,String keyword){
+
+    public Page<Room> roomList(Integer pageNumber, String keyword) {
 //        Sort sort = Sort.by(sortField);
 //        sort = sortDir.equals("asc")? sort.ascending():sort.descending();
-        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC,"roomId");
-        if(keyword !=null){
-            return roomDao.roomList(keyword,pageable);
+        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "roomId");
+        if (keyword != null) {
+            return roomDao.roomList(keyword, pageable);
         }
         return roomDao.findAll(pageable);
+    }
+
+    public Room getRoomById(Integer id){
+        return roomDao.findRoomByRoomId(id);
     }
 }

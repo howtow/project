@@ -28,14 +28,13 @@
         <div class="col-1">
         </div>
         <div style="top:0;left: 0;" class="col-11">
+            <form action="hotelManage" >
+                <label >搜尋</label>
+                <input type="text" name="hotelKeyword" >
+                <input type="submit" >
+            </form>
             <div>
-
                 <button class="justify-content-end"><a href="${contextRoot}/hotel/add">新增旅館</a></button>
-<%--                <form:form action="${contextRoot}/keyword1" method="get">--%>
-<%--                    <form:input type="text" value="" name="keyword" path="hotelId"/>--%>
-<%--                    <input type="submit" value="搜尋">--%>
-<%--                </form:form>--%>
-
             </div>
             <div class="table-responsive">
                 <%--            <input type="text" value="搜尋欄位">--%>
@@ -86,7 +85,7 @@
                 <c:choose>
 
                     <c:when test="${page.number != pageNumber-1 }">
-                        <a href="${contextRoot}/hotelManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
+                        <a href="${contextRoot}/hotelManage?p=${pageNumber}&hotelKeyword=${hotelKeyword}"><c:out value="${pageNumber}"></c:out></a>
                     </c:when>
 
 
