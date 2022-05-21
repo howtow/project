@@ -14,9 +14,92 @@
 <jsp:include page="adminPage.jsp"/>
 <html>
 <head>
-    <title>Title</title>
+    <title>房間管理</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div  style="top:0;left: 0;" class="col-11">
+            <form action="roomManage" >
+            <label >搜尋</label>
+            <input type="text" name="roomKeyword" >
+            <input type="submit" >
+            </form>
+            <table  class="table table-striped table-bordered table-secondary" id="roomTable">
+                <thead>
+                <tr>
+                    <td>roomID</td>
+                    <td>房間名稱</td>
+                    <td>價錢</td>
+                    <td>Tag</td>
+                    <td>人數限制</td>
+                    <td>描述</td>
+                    <td>旅館Id</td>
+                    <td>編輯</td>
+                    <td>刪除</td>
+                </tr>
+                </thead>
+                <c:forEach var="oneRoom" items="${roomList}">
+                    <tbody>
+                    <tr>
+                        <td>${oneRoom.roomId}</td>
+                        <td>${oneRoom.roomName}</td>
+                        <td>${oneRoom.price}</td>
+                        <td>${oneRoom.tag}</td>
+                        <td>${oneRoom.upperLimit}</td>
+                        <td>${oneRoom.description}</td>
+                        <td>${oneRoom.hotelId}</td>
+                        <td><a href="${contextRoot}/editRoom?roomId=${oneRoom.roomId}">編輯</a></td>
+                        <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteRoom?roomId=${oneRoom.roomId}">刪除</a></td>
+                    </tr>
+                    </tbody>
+                </c:forEach>
+            </table>
+            <div class="row justify-content-end">
+                <div class="col-12">
+                    <c:forEach var="pageNumber" begin="1" end="${page.totalPages}">
+                        <c:choose>
+
+                            <c:when  test="${page.number != pageNumber-1 }">
+                                <a href="${contextRoot}/roomManage?p=${pageNumber}&roomKeyword=${roomKeyword}"><c:out value="${pageNumber}"></c:out></a>
+                            </c:when>
+
+
+                            <c:otherwise>
+                                <c:out value="${pageNumber}"></c:out>
+                            </c:otherwise>
+
+                        </c:choose>
+                        <c:if test="${pageNumber != page.totalPages}">
+                            |
+                        </c:if>
+
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"--%>
+<%--        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"--%>
+<%--        crossorigin="anonymous"></script>--%>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+
 
 </body>
 </html>

@@ -15,7 +15,7 @@
 <jsp:include page="adminPage.jsp"/>
 <html>
 <head>
-    <title>房間管理</title>
+    <title>旅館管理</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
@@ -28,14 +28,13 @@
         <div class="col-1">
         </div>
         <div style="top:0;left: 0;" class="col-11">
+            <form action="hotelManage" >
+                <label >搜尋</label>
+                <input type="text" name="hotelKeyword" >
+                <input type="submit" >
+            </form>
             <div>
-
                 <button class="justify-content-end"><a href="${contextRoot}/hotel/add">新增旅館</a></button>
-<%--                <form:form action="${contextRoot}/keyword1" method="get">--%>
-<%--                    <form:input type="text" value="" name="keyword" path="hotelId"/>--%>
-<%--                    <input type="submit" value="搜尋">--%>
-<%--                </form:form>--%>
-
             </div>
             <div class="table-responsive">
                 <%--            <input type="text" value="搜尋欄位">--%>
@@ -86,7 +85,7 @@
                 <c:choose>
 
                     <c:when test="${page.number != pageNumber-1 }">
-                        <a href="${contextRoot}/hotelManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
+                        <a href="${contextRoot}/hotelManage?p=${pageNumber}&hotelKeyword=${hotelKeyword}"><c:out value="${pageNumber}"></c:out></a>
                     </c:when>
 
 

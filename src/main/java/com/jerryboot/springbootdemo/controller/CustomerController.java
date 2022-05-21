@@ -4,10 +4,12 @@ import com.jerryboot.springbootdemo.model.Customer;
 import com.jerryboot.springbootdemo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -20,12 +22,15 @@ public class CustomerController {
 
     //拿到所有會員資料
     @GetMapping("/customerManage")
-    public String customerList(Model model, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber){
-        Page<Customer> customerByPage = customerService.findCustomerByPage(pageNumber);
+    public ModelAndView customerList(ModelAndView mav, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
+                                     @RequestParam(name = "customerKeyword",defaultValue = "") String keyword){
+        Page<Customer> customerByPage = customerService.customerList(pageNumber, keyword);
         List<Customer> list = customerByPage.getContent();
-        model.addAttribute("customerList",list);
-        model.addAttribute("page",customerByPage);
-        return "customerManage";
+        mav.getModel().put("customerList",list);
+        mav.getModel().put("page",customerByPage);
+        mav.getModel().put("customerKeyword",keyword);
+        mav.setViewName("customerManage");
+        return mav;
 
     }
 

@@ -22,12 +22,15 @@ public class HotelManageController {
 
     //拿到所有旅館資料
     @GetMapping("/hotelManage")
-    public String hotelList(Model model, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber){
-        Page<Hotel> page = hotelService.findHotelByPage(pageNumber);
+    public ModelAndView hotelList(ModelAndView mav, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
+                                  @RequestParam(name = "hotelKeyword",required = false) String keyword){
+        Page<Hotel> page = hotelService.hotelList(pageNumber, keyword);
         List<Hotel> hotelList = page.getContent();
-        model.addAttribute("hotelList",hotelList);
-        model.addAttribute("page",page);
-        return "hotelManage";
+        mav.getModel().put("page", page);
+        mav.getModel().put("hotelList", hotelList);
+        mav.getModel().put("hotelKeyword", keyword);
+        mav.setViewName("hotelManage");
+        return mav;
 
     }
 
@@ -73,19 +76,6 @@ public class HotelManageController {
 
         return "redirect:hotelManage";
     }
-
-    @GetMapping("keyword1")
-    public String listByKeyword(Model model, @RequestParam(name = "p",defaultValue = "1")Integer pageNumber,
-                                @RequestParam(name = "keyword") String keyword){
-
-        Page<Hotel> hotelByKeyowrd = hotelService.findHotelByKeyowrd(pageNumber, keyword);
-        List<Hotel> list = hotelByKeyowrd.getContent();
-        model.addAttribute("hotelList",hotelByKeyowrd);
-        model.addAttribute("page",list);
-        model.addAttribute("keyword",keyword);
-        return "hotelManage";
-    }
-
 
 
 

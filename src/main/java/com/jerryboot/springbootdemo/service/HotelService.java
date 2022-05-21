@@ -46,12 +46,13 @@ public class HotelService {
     }
 
 
-    public Page<Hotel> findHotelByKeyowrd(Integer pageNumber,String keyword){
-        Pageable request = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "hotelId");
+    //拿到房間列表
+    public Page<Hotel> hotelList(Integer pageNumber,String keyword){
+        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "hotelId");
         if(keyword != null){
-            Page<Hotel> byKeyword = hotelDao.findAllByKeyword(keyword, request);
-            return byKeyword;
+            return hotelDao.hotelList(keyword,pageable);
+
         }
-        return hotelDao.findAll(request);
+        return hotelDao.findAll(pageable);
     }
 }
