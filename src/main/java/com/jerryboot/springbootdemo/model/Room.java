@@ -1,167 +1,165 @@
 package com.jerryboot.springbootdemo.model;
 
+import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "Room")
 public class Room {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "RoomID")
-	private Integer roomId;
-	
-	@Column(name = "RoomName")
-	private String roomName;
-	
-	@Column(name = "Price")
-	private String price;
-	
-	@Column(name = "Tag")
-	private String tag;
-	
-	@Column(name = "Upper_limit")
-	private Integer upperLimit;
-	
-	@Column(name = "Description")
-	private String description;
 
-	@Column(name = "HotelID")
-	private Integer hotelId;
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "HotelID",insertable = false, updatable = false)
-	private Hotel hotel;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
-	private Set<Booking> booking = new LinkedHashSet<Booking>();
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
-	private Set<Comment> comment = new LinkedHashSet<Comment>();
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
-	private Set<RoomImg> roomImg = new LinkedHashSet<RoomImg>();
-	
-	public Room() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "RoomID")
+    private Integer roomId;
 
-	public Integer getRoomId() {
-		return roomId;
-	}
+    @Column(name = "RoomName")
+    private String roomName;
 
-	public void setRoomId(Integer roomId) {
-		this.roomId = roomId;
-	}
+    @Column(name = "Price")
+    private String price;
 
-	public String getRoomName() {
-		return roomName;
-	}
+    @Column(name = "Tag")
+    private String tag;
 
-	public void setRoomName(String roomName) {
-		this.roomName = roomName;
-	}
+    @Column(name = "Upper_limit")
+    private Integer upperLimit;
 
-	public String getPrice() {
-		return price;
-	}
+    @Column(name = "Description")
+    private String description;
 
-	public void setPrice(String price) {
-		this.price = price;
-	}
+    @Column(name = "HotelID")
+    private Integer hotelId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "HotelID", insertable = false, updatable = false)
+    private Hotel hotel;
 
-	public String getTag() {
-		return tag;
-	}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
+    private Set<Booking> booking = new LinkedHashSet<Booking>();
 
-	public void setTag(String tag) {
-		this.tag = tag;
-	}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
+    private Set<Comment> comment = new LinkedHashSet<Comment>();
 
-	public Integer getUpperLimit() {
-		return upperLimit;
-	}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
+    private Set<RoomImg> roomImg = new LinkedHashSet<RoomImg>();
 
-	public void setUpperLimit(Integer upperLimit) {
-		this.upperLimit = upperLimit;
-	}
 
-	public String getDescription() {
-		return description;
-	}
+    public Room() {
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public Integer getRoomId() {
+        return roomId;
+    }
 
-	public Integer getHotelId() {
-		return hotelId;
-	}
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
 
-	public void setHotelId(Integer hotelID) {
-		this.hotelId = hotelID;
-	}
+    public String getRoomName() {
+        return roomName;
+    }
 
-	public Set<Booking> getBooking() {
-		return booking;
-	}
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
 
-	public void setBooking(Set<Booking> booking) {
-		this.booking = booking;
-	}
+    public String getPrice() {
+        return price;
+    }
 
-	public Set<Comment> getComment() {
-		return comment;
-	}
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
-	public void setComment(Set<Comment> comment) {
-		this.comment = comment;
-	}
+    public String getTag() {
+        return tag;
+    }
 
-	public Set<RoomImg> getRoomImg() {
-		return roomImg;
-	}
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 
-	public void setRoomImg(Set<RoomImg> roomImg) {
-		this.roomImg = roomImg;
-	}
+    public Integer getUpperLimit() {
+        return upperLimit;
+    }
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Room [roomId=");
-		builder.append(roomId);
-		builder.append(", roomName=");
-		builder.append(roomName);
-		builder.append(", price=");
-		builder.append(price);
-		builder.append(", tag=");
-		builder.append(tag);
-		builder.append(", upperLimit=");
-		builder.append(upperLimit);
-		builder.append(", description=");
-		builder.append(description);
-		builder.append(", hotelID=");
-		builder.append(hotelId);
-		builder.append(", booking=");
-		builder.append(booking);
-		builder.append(", comment=");
-		builder.append(comment);
-		builder.append(", roomImg=");
-		builder.append(roomImg);
-		builder.append("]");
-		return builder.toString();
-	}
-	
+    public void setUpperLimit(Integer upperLimit) {
+        this.upperLimit = upperLimit;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(Integer hotelID) {
+        this.hotelId = hotelID;
+    }
+
+    public Set<Booking> getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Set<Booking> booking) {
+        this.booking = booking;
+    }
+
+    public Set<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(Set<Comment> comment) {
+        this.comment = comment;
+    }
+
+    public Set<RoomImg> getRoomImg() {
+        return roomImg;
+    }
+
+    public void setRoomImg(Set<RoomImg> roomImg) {
+        this.roomImg = roomImg;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Room [roomId=");
+        builder.append(roomId);
+        builder.append(", roomName=");
+        builder.append(roomName);
+        builder.append(", price=");
+        builder.append(price);
+        builder.append(", tag=");
+        builder.append(tag);
+        builder.append(", upperLimit=");
+        builder.append(upperLimit);
+        builder.append(", description=");
+        builder.append(description);
+        builder.append(", hotelID=");
+        builder.append(hotelId);
+        builder.append(", booking=");
+        builder.append(booking);
+        builder.append(", comment=");
+        builder.append(comment);
+        builder.append(", roomImg=");
+        builder.append(roomImg);
+        builder.append("]");
+        return builder.toString();
+    }
+
 }

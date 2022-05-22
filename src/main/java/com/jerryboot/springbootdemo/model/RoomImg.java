@@ -70,6 +70,14 @@ public class RoomImg {
 		this.imgDescribe = imgDescribe;
 	}
 
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

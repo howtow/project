@@ -23,7 +23,7 @@ public class CustomerController {
     //拿到所有會員資料
     @GetMapping("/customerManage")
     public ModelAndView customerList(ModelAndView mav, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
-                                     @RequestParam(name = "customerKeyword",defaultValue = "") String keyword){
+                                     @RequestParam(name = "customerKeyword",required=false) String keyword){
         Page<Customer> customerByPage = customerService.customerList(pageNumber, keyword);
         List<Customer> list = customerByPage.getContent();
         mav.getModel().put("customerList",list);

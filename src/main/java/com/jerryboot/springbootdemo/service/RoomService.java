@@ -17,11 +17,17 @@ public class RoomService {
     @Autowired
     private RoomDao roomDao;
 
+    public void saveRoom(Room room){
+        roomDao.save(room);
+    }
+
     public void updateRoom(Room room) {
+
         roomDao.save(room);
     }
 
     public void deleteRoom(Integer id) {
+
         roomDao.deleteRoomByRoomId(id);
     }
 
@@ -35,7 +41,7 @@ public class RoomService {
         return roomDao.findAll(pageable);
     }
 
-    public Room getRoomById(Integer id){
+    public Room getRoomById(Integer id) {
         return roomDao.findRoomByRoomId(id);
     }
 }
