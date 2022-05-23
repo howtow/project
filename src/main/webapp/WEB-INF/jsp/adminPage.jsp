@@ -95,7 +95,7 @@
                     <div class="job">管理員</div>
                 </div>
             </div>
-            <i class='bx bx-log-out' id="log-out"></i>
+            <a href="${contextRoot}/adminLogout"><i class='bx bx-log-out' id="log-out"></i></a>
         </div>
     </div>
     <!-- ======管理員資訊 結束===== -->

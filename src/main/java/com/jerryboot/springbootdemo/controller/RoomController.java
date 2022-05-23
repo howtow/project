@@ -74,6 +74,7 @@ public class RoomController {
                 img.setImg(p.getBytes());
                 img.setRoom(room);
                 roomImgService.saveRoomImg(img);
+                roomService.saveRoom(room);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -111,13 +112,14 @@ public class RoomController {
                               @RequestParam("imgDescription") String imgDescription)
             throws IOException {
         String[] tagArr = tag.split(",");
-        tag = "";
+        StringBuilder tagBuilder = new StringBuilder();
         for (String s : tagArr) {
             if (!s.isEmpty()) {
-                tag += s;
-                tag += ",";
+                tagBuilder.append(s);
+                tagBuilder.append(",");
             }
         }
+        tag = tagBuilder.toString();
 
         Hotel hotelById = hotelService.getHotelById(hotelId);
         if (hotelById != null) {
@@ -142,7 +144,7 @@ public class RoomController {
 
             }
             model.addAttribute("message", "新增成功");
-            return "redirect:room/add";
+            return "redirect:roomManage";
         } else {
             model.addAttribute("message", "找不到此飯店ID");
             return "redirect:room/add";

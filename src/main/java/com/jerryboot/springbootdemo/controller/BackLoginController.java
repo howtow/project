@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -48,6 +51,22 @@ public class BackLoginController {
             return "adminPage";
     }
 
+    //後台登出
+    @GetMapping("/adminLogout")
+    public String backLogout(@ModelAttribute Admin admin,HttpSession httpSession, HttpServletRequest request, HttpServletResponse response,
+                             RedirectAttributes redirectAttributes){
 
+        request.getSession().invalidate();
+
+        Cookie[] cookies = request.getCookies();
+        for (Cookie c : cookies) {
+            if (c.getName().equals(admin.getAdminName())){
+                c.setMaxAge(0);
+                break;
+            }
+
+        }
+        return "redirect:index";
+    }
 
 }

@@ -48,7 +48,7 @@
         <div class="col-1">
         </div>
         <div style="top:0;left: 0;" class="col-10 mt-3">
-            <form:form action="${contextRoot}/postEditRoom" modelAttribute="roomBean" method="POST">
+            <form:form action="${contextRoot}/postEditRoom" modelAttribute="roomBean" method="POST" enctype="multipart/form-data">
                 <%--                沒加id欄位編輯會變成新增--%>
             <div class="form-group">
                 <label>房間ID</label>
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
                 <label>旅館Id</label>
-                <form:input type="text" class="form-control" path="hotel.hotelId" cssStyle="width: 300px" readonly="true"/>
+                <form:input type="text" class="form-control" path="hotel.hotelId" cssStyle="width: 300px" />
             </div>
             <div class="form-group">
                 <label>房間名字</label>
