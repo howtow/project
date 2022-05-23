@@ -1,6 +1,5 @@
 package com.jerryboot.springbootdemo.controller;
 
-import com.jerryboot.springbootdemo.model.Customer;
 import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.model.Room;
 import com.jerryboot.springbootdemo.model.RoomImg;
@@ -9,10 +8,12 @@ import com.jerryboot.springbootdemo.service.RoomImgService;
 import com.jerryboot.springbootdemo.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,14 +36,14 @@ public class RoomController {
     private RoomImgService roomImgService;
 
     @GetMapping("/roomManage")
-    public ModelAndView roomList(ModelAndView mav, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
-                                 @RequestParam(name = "roomKeyword",required=false) String keyword){
+    public ModelAndView roomList(ModelAndView mav, @RequestParam(name = "p", defaultValue = "1") Integer pageNumber,
+                                 @RequestParam(name = "roomKeyword", required = false) String keyword) {
         Page<Room> page = roomService.roomList(pageNumber, keyword);
 
         List<Room> roomList = page.getContent();
-        mav.getModel().put("page",page);
+        mav.getModel().put("page", page);
         mav.getModel().put("roomList", roomList);
-        mav.getModel().put("roomKeyword",keyword);
+        mav.getModel().put("roomKeyword", keyword);
         mav.setViewName("roomManage");
 //        model.addAttribute("page", page);
 //        model.addAttribute("roomList", roomList);
@@ -52,20 +53,31 @@ public class RoomController {
 //        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 //        model.addAttribute("reverseSortDir",reverseSortDir);
 
-        return mav ;
+        return mav;
     }
 
     //跳到更新房間頁面
     @GetMapping("/editRoom")
-    public String editRoom(Model model,@RequestParam("roomId") Integer id){
+    public String editRoom(Model model, @RequestParam("roomId") Integer id) {
         Room room = roomService.getRoomById(id);
-        model.addAttribute("roomBean",room);
+        model.addAttribute("roomBean", room);
         return "updateRoom";
     }
 
     //更新房間資料
     @PostMapping("postEditRoom")
-    public String editCustomer(@ModelAttribute("roomBean") Room room){
+    public String editCustomer(@ModelAttribute("roomBean") Room room,
+                               @RequestParam("pic")MultipartFile[] pic) {
+        for (MultipartFile p : pic) {
+            try {
+            RoomImg img = new RoomImg();
+                img.setImg(p.getBytes());
+                img.setRoom(room);
+                roomImgService.saveRoomImg(img);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         roomService.updateRoom(room);
         return "redirect:roomManage";
@@ -74,7 +86,7 @@ public class RoomController {
 
     //刪除房間
     @GetMapping("deleteRoom")
-    public String deleteCustomer(@RequestParam("roomId") Integer id){
+    public String deleteCustomer(@RequestParam("roomId") Integer id) {
         roomService.deleteRoom(id);
 
         return "redirect:roomManage";
@@ -82,7 +94,7 @@ public class RoomController {
 
     //跳到新增房間頁面
     @GetMapping("room/add")
-    public String addRoom(){
+    public String addRoom() {
         return "addRoom";
     }
 
@@ -95,8 +107,9 @@ public class RoomController {
                               @RequestParam("upperLimit") Integer upperLimit,
                               @RequestParam("description") String description,
                               @RequestParam("pic") MultipartFile[] pic,
-                              @RequestParam("hotelId") Integer hotelId)
-    throws IOException{
+                              @RequestParam("hotelId") Integer hotelId,
+                              @RequestParam("imgDescription") String imgDescription)
+            throws IOException {
         String[] tagArr = tag.split(",");
         tag = "";
         for (String s : tagArr) {
@@ -107,10 +120,7 @@ public class RoomController {
         }
 
         Hotel hotelById = hotelService.getHotelById(hotelId);
-        if(hotelById == null){
-            model.addAttribute("message","找不到此飯店ID");
-            return "addRoom";
-        }else {
+        if (hotelById != null) {
             Room room = new Room();
             room.setRoomName(roomName);
             room.setPrice(price);
@@ -119,23 +129,28 @@ public class RoomController {
             room.setTag(tag);
             //和飯店關聯
             room.setHotel(hotelById);
-
             roomService.saveRoom(room);
-
+            System.out.println(room);
             //新增房間照片(用RoomImgService)
             for (MultipartFile p : pic) {
                 RoomImg img = new RoomImg();
-                    img.setImg(p.getBytes());
-                    //和房間關聯
-                    img.setRoom(room);
-                    roomImgService.saveRoomImg(img);
+                img.setImg(p.getBytes());
+                img.setImgDescribe(imgDescription);
+                //和房間關聯
+                img.setRoom(room);
+                roomImgService.saveRoomImg(img);
 
-                }
-            model.addAttribute("message", "新增成功");
-            return "addRoom";
             }
+            model.addAttribute("message", "新增成功");
+            return "redirect:room/add";
+        } else {
+            model.addAttribute("message", "找不到此飯店ID");
+            return "redirect:room/add";
 
         }
+
     }
+
+}
 
 

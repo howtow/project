@@ -21,11 +21,9 @@ public class RoomImg {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "RoomImgID")
 	private Integer roomImgId;
-	
-	@Column(name = "RoomID")
-	private Integer roomId;
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "RoomID",insertable = false, updatable = false)
+	@JoinColumn(name = "RoomID")
 	private Room room;
 	
 	@Lob
@@ -44,14 +42,6 @@ public class RoomImg {
 
 	public void setRoomImgId(Integer roomImgId) {
 		this.roomImgId = roomImgId;
-	}
-
-	public Integer getRoomId() {
-		return roomId;
-	}
-
-	public void setRoomId(Integer roomId) {
-		this.roomId = roomId;
 	}
 
 	public byte[] getImg() {
@@ -83,8 +73,8 @@ public class RoomImg {
 		StringBuilder builder = new StringBuilder();
 		builder.append("RoomImg [roomImgId=");
 		builder.append(roomImgId);
-		builder.append(", roomId=");
-		builder.append(roomId);
+		builder.append(", room=");
+		builder.append(room);
 		builder.append(", img=");
 		builder.append(Arrays.toString(img));
 		builder.append(", imgDescribe=");

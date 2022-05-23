@@ -58,7 +58,7 @@
                         <td>${oneRoom.tag}</td>
                         <td>${oneRoom.upperLimit}</td>
                         <td>${oneRoom.description}</td>
-                        <td>${oneRoom.hotelId}</td>
+                        <td>${oneRoom.hotel.hotelId}</td>
                         <td><a href="${contextRoot}/editRoom?roomId=${oneRoom.roomId}">編輯</a></td>
                         <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteRoom?roomId=${oneRoom.roomId}">刪除</a></td>
                     </tr>

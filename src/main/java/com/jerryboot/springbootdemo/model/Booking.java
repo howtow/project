@@ -63,22 +63,19 @@ public class Booking {
 	@Column(name = "ArriveTimes")
 	private String arriveTimes;
 	
-	@Column(name = "UserID")
-	private Integer userId;
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "UserID",insertable = false, updatable = false)
+	@JoinColumn(name = "UserID")
 	private Customer customer;
 	
-	@Column(name = "HotelID")
-	private Integer hotelId;
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "HotelID",insertable = false, updatable = false)
+	@JoinColumn(name = "HotelID")
 	private Hotel hotel;
 	
-	@Column(name = "RoomID")
-	private Integer roomId;
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "RoomID",insertable = false, updatable = false)
+	@JoinColumn(name = "RoomID")
 	private Room room;
 	
 	@OneToOne(fetch = FetchType.EAGER, mappedBy = "booking", cascade = CascadeType.ALL)
@@ -174,36 +171,36 @@ public class Booking {
 		this.arriveTimes = arriveTimes;
 	}
 
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-	public Integer getHotelId() {
-		return hotelId;
-	}
-
-	public void setHotelId(Integer hotelID) {
-		this.hotelId = hotelID;
-	}
-
-	public Integer getRoomId() {
-		return roomId;
-	}
-
-	public void setRoomId(Integer roomID) {
-		this.roomId = roomID;
-	}
-
 	public Comment getComment() {
 		return comment;
 	}
 
 	public void setComment(Comment comment) {
 		this.comment = comment;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 
 	@Override
@@ -229,12 +226,12 @@ public class Booking {
 		builder.append(annotation);
 		builder.append(", arriveTimes=");
 		builder.append(arriveTimes);
-		builder.append(", userId=");
-		builder.append(userId);
-		builder.append(", hotelId=");
-		builder.append(hotelId);
-		builder.append(", roomId=");
-		builder.append(roomId);
+		builder.append(", customer=");
+		builder.append(customer);
+		builder.append(", hotel=");
+		builder.append(hotel);
+		builder.append(", room=");
+		builder.append(room);
 		builder.append(", comment=");
 		builder.append(comment);
 		builder.append("]");

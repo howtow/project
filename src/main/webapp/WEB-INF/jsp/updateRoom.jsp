@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
                 <label>旅館Id</label>
-                <form:input type="text" class="form-control" path="hotelId" cssStyle="width: 300px" readonly="true"/>
+                <form:input type="text" class="form-control" path="hotel.hotelId" cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label>房間名字</label>
@@ -78,6 +78,11 @@
                 <label>描述</label>
                 <form:input type="text" class="form-control" path="description" cssStyle="width: 300px"/>
             </div>
+                <div class="form-group">
+                    <label>照片上傳</label>
+                    <input type="file" class="form-control" name="pic" multiple="multiple" accept="image/*, .jpeg, .png, .gif, .jpeg" />
+                </div>
+
         </div>
         <div class="container">
             <div class="row justify-content-end">
