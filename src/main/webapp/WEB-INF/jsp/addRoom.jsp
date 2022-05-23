@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-1">
         </div>
-        <form action="addRoom" method="POST" enctype="multipart/form-data">
+        <form action="../addRoom" method="POST" enctype="multipart/form-data">
         <div style="top:0;left: 0;" class="col-10 mt-3">
             <h1>Room+照片新增</h1><h3>${message}</h3>
                 <div class="form-group">
@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label>價格</label>
-                <input type="text" class="form-control" name="price" cssStyle="width: 300px"/>
+                <input type="text" class="form-control" name="price" />
             </div>
             <div class="form-group">
                 <label>標籤</label>
@@ -88,11 +88,11 @@
             </div>
             <div class="form-group">
                 <label>人數限制</label>
-                <input type="number" class="form-control" name="upperLimit" cssStyle="width: 300px"/>
+                <input type="number" class="form-control" name="upperLimit" />
             </div>
             <div class="form-group">
                 <label>描述</label>
-                <input type="text" class="form-control" name="description" cssStyle="width: 300px"/>
+                <input type="text" class="form-control" name="description" />
             </div>
         </div>
             <div class="container">
@@ -103,6 +103,10 @@
                         <input type="file" class="form-control" name="pic" multiple="multiple" accept="image/*, .jpeg, .png, .gif, .jpeg" id="uploadImg"/>
                     </div>
                         <div id="showImg"></div>
+                        <div class="form-group">
+                            <label>照片描述</label>
+                            <input type="text" class="form-control" name="imgDescription" />
+                        </div>
                     </div>
                 </div>
             </div>

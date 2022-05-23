@@ -60,7 +60,7 @@
             </div>
             <div class="form-group">
                 <label>描述</label>
-                <form:input type="textarea" class="form-control" path="description"  rows="5" cssStyle="width: 300px;height: 100px"/>
+                <form:textarea class="form-control" path="description"  rows="5" cssStyle="width: 300px;height: 100px"/>
             </div>
             <div class="form-group">
                 <label>地址</label>

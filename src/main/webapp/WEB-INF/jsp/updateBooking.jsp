@@ -10,6 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
+<jsp:include page="adminPage.jsp"/>
 <html>
 <head>
     <title>更新訂單</title>
@@ -50,57 +51,57 @@
             <form:form action="${contextRoot}/editPostBooking" modelAttribute="bookingBean" method="POST">
                 <%--                沒加id欄位編輯會變成新增--%>
                 <div class="form-group">
-                    <label for="customerId">ID</label>
+                    <label>ID</label>
                     <form:input type="text" class="form-control" id="customerId" aria-describedby="emailHelp" path="bookingId" cssStyle="width: 300px" readonly="true"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerCreditCard">客戶ID</label>
-                    <form:input type="text" class="form-control" id="customerCreditCard"  path="userId" cssStyle="width: 300px" pattern="[0-9]{13,16}" readonly="true"/>
+                    <label>客戶ID</label>
+                    <form:input type="text" class="form-control" id="customerCreditCard"  path="customer.userId" cssStyle="width: 300px"  readonly="true"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerCreditCard">飯店ID</label>
-                    <form:input type="text" class="form-control" id="customerCreditCard"  path="hotelId" cssStyle="width: 300px" pattern="[0-9]{13,16}" readonly="true"/>
+                    <label>飯店ID</label>
+                    <form:input type="text" class="form-control" id="customerCreditCard"  path="hotel.hotelId" cssStyle="width: 300px"  readonly="true"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerCreditCard">飯店ID</label>
-                    <form:input type="text" class="form-control" id="customerCreditCard"  path="roomId" cssStyle="width: 300px" pattern="[0-9]{13,16}" readonly="true"/>
+                    <label>飯店ID</label>
+                    <form:input type="text" class="form-control" id="customerCreditCard"  path="room.roomId" cssStyle="width: 300px"  readonly="true"/>
                 </div>
                 <form:errors path="email"/>
                 <div class="form-group">
-                    <label for="customerEmail">狀態</label>
+                    <label>狀態</label>
                     <form:input type="text" class="form-control" id="customerEmail" aria-describedby="emailHelp" path="state" cssStyle="width: 300px" readonly="true"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerPassword">訂單時間</label>
-                    <form:input type="date" class="form-control" id="customerPassword" path="bookingTimes" cssStyle="width: 300px"/>
+                    <label>訂單時間</label>
+                    <form:input type="text" class="form-control" id="customerPassword" path="bookingTimes"  readonly="true"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerName">入住幾天</label>
+                    <label >入住幾天</label>
                     <form:input type="number" class="form-control" id="customerName" aria-describedby="emailHelp" path="dateOfStay" cssStyle="width: 300px"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerPhone">評分</label>
+                    <label >評分</label>
                     <form:input type="text" class="form-control" id="customerPhone" aria-describedby="emailHelp" path="rating" cssStyle="width: 300px" readonly="true"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerBirthday">訂單名字</label>
-                    <form:input type="text" class="form-control" id="customerBirthday"  path="bookingName"  pattern="yyyy-MM-dd" cssStyle="width: 300px"/>
+                    <label >訂單名字</label>
+                    <form:input type="text" class="form-control" id="customerBirthday"  path="bookingName" cssStyle="width: 300px"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerPhone">電子郵件</label>
-                    <form:input type="text" class="form-control" id="customerPhone"  path="email" cssStyle="width: 300px"/>
+                    <label >電子郵件</label>
+                    <form:input type="email" class="form-control" id="customerPhone"  path="email" cssStyle="width: 300px"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerPhone">信用卡</label>
-                    <form:input type="text" class="form-control" id="customerPhone"  path="creditCard" cssStyle="width: 300px"/>
+                    <label >信用卡</label>
+                    <form:input type="text" class="form-control" id="customerPhone"  path="creditCard" cssStyle="width: 300px" pattern="[0-9]{13,16}" />
                 </div>
                 <div class="form-group">
-                    <label for="customerAddress">備註</label>
+                    <label>備註</label>
                     <form:input type="text" class="form-control" id="customerAddress"  path="annotation" cssStyle="width: 500px"/>
                 </div>
                 <div class="form-group">
-                    <label for="customerCreditCard">入住時間</label>
-                    <form:input type="date" class="form-control" id="customerCreditCard"  path="arriveTimes" cssStyle="width: 300px" pattern="[0-9]{13,16}" />
+                    <label>入住時間</label>
+                    <form:input type="text" class="form-control" id="customerCreditCard"  path="arriveTimes" cssStyle="width: 300px"  />
                 </div>
 
                 <input type="submit" value="送出">

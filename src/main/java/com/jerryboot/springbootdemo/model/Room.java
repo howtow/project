@@ -28,10 +28,9 @@ public class Room {
     @Column(name = "Description")
     private String description;
 
-    @Column(name = "HotelID")
-    private Integer hotelId;
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "HotelID", insertable = false, updatable = false)
+    @JoinColumn(name = "HotelID")
     private Hotel hotel;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
@@ -95,13 +94,6 @@ public class Room {
         this.description = description;
     }
 
-    public Integer getHotelId() {
-        return hotelId;
-    }
-
-    public void setHotelId(Integer hotelID) {
-        this.hotelId = hotelID;
-    }
 
     public Set<Booking> getBooking() {
         return booking;
@@ -150,8 +142,8 @@ public class Room {
         builder.append(upperLimit);
         builder.append(", description=");
         builder.append(description);
-        builder.append(", hotelID=");
-        builder.append(hotelId);
+        builder.append(", hotel=");
+        builder.append(hotel);
         builder.append(", booking=");
         builder.append(booking);
         builder.append(", comment=");
