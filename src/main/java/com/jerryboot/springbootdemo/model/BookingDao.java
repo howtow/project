@@ -12,5 +12,7 @@ public  interface BookingDao extends JpaRepository<Booking,Integer> {
     Booking findBookingByBookingId(@Param("id") Integer id);
 
 
+
+
     void deleteByBookingId(Integer id);
 }

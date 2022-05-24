@@ -44,9 +44,6 @@ public class Booking {
 	@Column(name = "DateOfStay")
 	private String dateOfStay;
 	
-	@Column(name = "Rating")
-	private double rating;
-	
 	@Column(name = "BookingName")
 	private String bookingName;
 
@@ -121,14 +118,6 @@ public class Booking {
 
 	public void setDateOfStay(String dateOfStay) {
 		this.dateOfStay = dateOfStay;
-	}
-
-	public double getRating() {
-		return rating;
-	}
-
-	public void setRating(double rating) {
-		this.rating = rating;
 	}
 
 	public String getBookingName() {
@@ -214,8 +203,6 @@ public class Booking {
 		builder.append(bookingTimes);
 		builder.append(", dateOfStay=");
 		builder.append(dateOfStay);
-		builder.append(", rating=");
-		builder.append(rating);
 		builder.append(", bookingName=");
 		builder.append(bookingName);
 		builder.append(", email=");

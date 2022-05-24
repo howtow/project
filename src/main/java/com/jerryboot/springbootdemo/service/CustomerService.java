@@ -40,6 +40,7 @@ public class CustomerService {
     }
 
     public void deleteCustomer(Integer id) {
+
         customerDao.deleteByUserId(id);
     }
 

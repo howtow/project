@@ -18,6 +18,12 @@
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
+
+<%
+    response.setHeader("Pragma", "No-cache");
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setDateHeader("Expires", -1);
+%>
 <div class="sidebar">
     <div class="logo_content">
         <img src="${contextRoot}/image/logo.png"/>
@@ -61,7 +67,7 @@
         </li>
         <!-- 評論管理和Icon-->
         <li>
-            <a href="#">
+            <a href="${contextRoot}/commentManage">
                 <i class='bx bxs-comment-detail'></i>
                 <span class="links_name">評論管理</span>
             </a>
@@ -115,6 +121,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
+<script type="text/javascript">
+    //避免上一頁返回
+    function preventBack() {
+        window.history.forward();
+    }
 
+    setTimeout("preventBack()", 0);
+
+    window.onunload = function () { null };
+
+
+</script>
 </body>
 </html>

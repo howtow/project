@@ -51,22 +51,22 @@ public class BackLoginController {
             return "adminPage";
     }
 
-    //後台登出
+//    後台登出
     @GetMapping("/adminLogout")
-    public String backLogout(@ModelAttribute Admin admin,HttpSession httpSession, HttpServletRequest request, HttpServletResponse response,
+    public String backLogout(HttpSession httpSession, HttpServletRequest request, HttpServletResponse response,
                              RedirectAttributes redirectAttributes){
 
         request.getSession().invalidate();
 
         Cookie[] cookies = request.getCookies();
         for (Cookie c : cookies) {
-            if (c.getName().equals(admin.getAdminName())){
+            if (c.getName().equals("JSESSIONID")){
                 c.setMaxAge(0);
                 break;
             }
 
         }
-        return "redirect:index";
+        return "redirect:adminLoginForm";
     }
 
 }
