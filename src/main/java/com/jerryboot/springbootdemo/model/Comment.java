@@ -26,6 +26,12 @@ public class Comment {
     @Column(name = "CommentTime",columnDefinition = "date")
     private Date commentTime;
 
+    public void onCreate(){
+        if (commentTime == null){
+            commentTime =new Date();
+        }
+    }
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "UserID")
