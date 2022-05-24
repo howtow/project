@@ -80,10 +80,6 @@
                     <form:input type="number" class="form-control" id="customerName" aria-describedby="emailHelp" path="dateOfStay" cssStyle="width: 300px"/>
                 </div>
                 <div class="form-group">
-                    <label >評分</label>
-                    <form:input type="text" class="form-control" id="customerPhone" aria-describedby="emailHelp" path="rating" cssStyle="width: 300px" readonly="true"/>
-                </div>
-                <div class="form-group">
                     <label >訂單名字</label>
                     <form:input type="text" class="form-control" id="customerBirthday"  path="bookingName" cssStyle="width: 300px"/>
                 </div>

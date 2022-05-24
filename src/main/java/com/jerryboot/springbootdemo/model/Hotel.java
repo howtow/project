@@ -59,7 +59,7 @@ public class Hotel {
     private String HotelPassword;
 
     @Column(name = "AverageRating")
-    private double AverageRating;
+    private Double AverageRating;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = CascadeType.ALL)
     private Set<Room> room = new LinkedHashSet<Room>();
