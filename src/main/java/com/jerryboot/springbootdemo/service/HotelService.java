@@ -1,8 +1,6 @@
 package com.jerryboot.springbootdemo.service;
 
-import com.jerryboot.springbootdemo.model.Booking;
-import com.jerryboot.springbootdemo.model.Hotel;
-import com.jerryboot.springbootdemo.model.HotelDao;
+import com.jerryboot.springbootdemo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +9,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 @Transactional
@@ -18,6 +18,9 @@ public class HotelService {
 
     @Autowired
     private HotelDao hotelDao;
+
+    @Autowired
+    private RoomDao roomDao;
 
     public Page<Hotel> findHotelByPage(Integer pageNumber) {
         Pageable request = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "hotelId");
@@ -55,4 +58,36 @@ public class HotelService {
         }
         return hotelDao.findAll(pageable);
     }
-}
+
+    //廠商登入
+    public Hotel login(String account,String password){
+        Hotel tempMember = hotelDao.findByHotelAccountAndHotelPassword(account, password);
+        if(tempMember!=null){
+            return tempMember;
+        }else {
+            return null;
+        }
+    }
+
+    //廠商拿到自己的資料
+    public Page<Room> findRoom1(Integer id,Integer pageNumber){
+        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "roomId");
+
+        Page<Room> room = hotelDao.findRoomByHotel_HotelId(id, pageable);
+        return room;
+
+
+    }
+
+    public Page<Room> findRoomByHotelAccount(Integer id,Integer pageNumber){
+        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "roomId");
+
+        Page<Room> room = hotelDao.findRoomByHotel_HotelId(id, pageable);
+        return room;
+
+    }
+//    public Room findRoomByHotelId(Integer id){
+//        return hotelDao.findRoomByHotelId(id);
+//    }
+    }
+

@@ -153,6 +153,24 @@ public class RoomController {
 
     }
 
+
+    @GetMapping("/firmRoomManage")
+    public ModelAndView roomList1(ModelAndView mav,@RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
+                                  @RequestParam(name = "roomKeyword", required = false) String keyword,
+                                  Integer hotelId){
+
+        hotelId=5;
+        Page<Room> page = hotelService.findRoom1(hotelId, pageNumber);
+        List<Room> list = page.getContent();
+        mav.getModel().put("roomList", list);
+        mav.getModel().put("page",page);
+        mav.getModel().put("roomKeyword",keyword);
+        mav.setViewName("firmRoomManage");
+
+        return mav;
+
+    }
+
 }
 
 

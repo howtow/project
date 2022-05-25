@@ -81,6 +81,7 @@ public class HotelManageController {
 
 
 
+
     // 根據頁數找到hotel ajax
 //    @GetMapping("/hotelManage1")
 //    @ResponseBody

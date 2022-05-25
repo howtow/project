@@ -2,7 +2,9 @@ package com.jerryboot.springbootdemo.controller;
 
 import com.jerryboot.springbootdemo.model.Admin;
 import com.jerryboot.springbootdemo.model.AdminDao;
+import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.service.AdminService;
+import com.jerryboot.springbootdemo.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,9 @@ public class BackLoginController {
     @Autowired
     private AdminService adminService;
 
+    @Autowired
+    private HotelService hotelService;
+
 //    登入
     @GetMapping("/adminLogin")
     public String login(@ModelAttribute Admin admin,Model model) {
@@ -41,14 +46,18 @@ public class BackLoginController {
                            @RequestParam("password") String password,
                            HttpSession httpSession, RedirectAttributes redirectAttributes){
         Admin result = adminService.login(adminEmail, password);
-
-        if(result==null){
-            // RedirectAttributes.addFlashAttribute: redirect 帶值跳頁(不可以用Model)
-            redirectAttributes.addFlashAttribute("loginError","帳號密碼錯誤 ");
-            return "redirect:adminLogin";
-        }
+        Hotel hotel = hotelService.login(adminEmail, password);
+        if(result!=null){
             httpSession.setAttribute("loginAdmin",result);
             return "adminPage";
+        }else if (hotel!=null){
+            httpSession.setAttribute("loginFirm",hotel);
+            return "firmPage";
+        }else {
+            // RedirectAttributes.addFlashAttribute: redirect 帶值跳頁(不可以用Model)
+        redirectAttributes.addFlashAttribute("loginError","帳號密碼錯誤 ");
+        return "redirect:adminLogin";
+    }
     }
 
 //    後台登出

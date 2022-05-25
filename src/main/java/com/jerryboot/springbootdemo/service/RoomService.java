@@ -42,6 +42,16 @@ public class RoomService {
     }
 
     public Room getRoomById(Integer id) {
+
         return roomDao.findRoomByRoomId(id);
     }
+
+//    ----------------------------------------------
+
+//    public Page<Room> firmRoomList(Integer id,Integer pageNumber){
+//
+//        Pageable room = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "roomId");
+//        if ()
+//
+//    }
 }
