@@ -23,6 +23,10 @@ public interface RoomDao extends JpaRepository<Room,Integer> {
      Page<Room> roomList(String keyword, Pageable pageable);
 
 //    廠商搜尋自己所屬房間
-    @Query("select r from Room r where r.hotel.hotelId= :id")
-    Page<Room> findRoomByHotel_HotelId(@Param("id") Integer id,Pageable pageable);
+    @Query("select r from Room r where concat(r.roomName, r.price, r.tag, r.description) like %?1% and r.hotel.hotelId=?2")
+    Page<Room> findRoomByHotel_HotelId(String keyword,Integer id,Pageable pageable);
+
+    //廠商全部的房間
+    @Query("select r from Room r where r.hotel.hotelId=?1")
+    Page<Room> findRoomByHotel_HotelId2(Integer id,Pageable pageable);
 }

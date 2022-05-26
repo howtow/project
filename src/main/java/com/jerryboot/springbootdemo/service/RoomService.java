@@ -17,7 +17,8 @@ public class RoomService {
     @Autowired
     private RoomDao roomDao;
 
-    public void saveRoom(Room room){
+
+    public void saveRoom(Room room) {
         roomDao.save(room);
     }
 
@@ -46,12 +47,15 @@ public class RoomService {
         return roomDao.findRoomByRoomId(id);
     }
 
-//    ----------------------------------------------
+//    -------------------------------------------------------
+    //廠商拿到自己的資料
+    public Page<Room> findRoom1(Integer id,String keyword, Integer pageNumber) {
+        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "roomId");
 
-//    public Page<Room> firmRoomList(Integer id,Integer pageNumber){
-//
-//        Pageable room = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "roomId");
-//        if ()
-//
-//    }
-}
+        if (keyword != null) {
+            Page<Room> room = roomDao.findRoomByHotel_HotelId(keyword, id, pageable);
+            return room;
+        }
+        return roomDao.findRoomByHotel_HotelId2(id, pageable);
+    }
+    }

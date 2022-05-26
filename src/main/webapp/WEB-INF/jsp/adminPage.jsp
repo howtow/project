@@ -123,13 +123,13 @@
         crossorigin="anonymous"></script>
 <script type="text/javascript">
     //避免上一頁返回
-    function preventBack() {
-        window.history.forward();
-    }
-
-    setTimeout("preventBack()", 0);
-
-    window.onunload = function () { null };
+    // function preventBack() {
+    //     window.history.forward();
+    // }
+    //
+    // setTimeout("preventBack()", 0);
+    //
+    // window.onunload = function () { null };
 
 
 </script>

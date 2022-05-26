@@ -15,6 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,7 +30,6 @@ public class Customer {
 	@Column(name = "UserID")
 	private Integer userId;
 
-	@Email(message = "請輸入Email")
 	@Column(name = "Email")
 	private String email;
 	
@@ -35,6 +37,7 @@ public class Customer {
 	private String password;
 	
 	@Column(name = "UserName")
+	@NotEmpty(message = "請輸入名字")
 	private String userName;
 	
 	@Column(name = "Phone")

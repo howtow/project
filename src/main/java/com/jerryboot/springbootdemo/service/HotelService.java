@@ -68,26 +68,5 @@ public class HotelService {
             return null;
         }
     }
-
-    //廠商拿到自己的資料
-    public Page<Room> findRoom1(Integer id,Integer pageNumber){
-        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "roomId");
-
-        Page<Room> room = hotelDao.findRoomByHotel_HotelId(id, pageable);
-        return room;
-
-
-    }
-
-    public Page<Room> findRoomByHotelAccount(Integer id,Integer pageNumber){
-        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "roomId");
-
-        Page<Room> room = hotelDao.findRoomByHotel_HotelId(id, pageable);
-        return room;
-
-    }
-//    public Room findRoomByHotelId(Integer id){
-//        return hotelDao.findRoomByHotelId(id);
-//    }
     }
 

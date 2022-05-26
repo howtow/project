@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -153,18 +154,19 @@ public class RoomController {
 
     }
 
-
+//----------------------------------------------------------
+//    廠商用
     @GetMapping("/firmRoomManage")
-    public ModelAndView roomList1(ModelAndView mav,@RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
-                                  @RequestParam(name = "roomKeyword", required = false) String keyword,
-                                  Integer hotelId){
+    public ModelAndView roomList1(ModelAndView mav, @RequestParam(name = "p",defaultValue = "1") Integer pageNumber,
+                                  @RequestParam(name = "firmRoomKeyword", required = false) String keyword,
+                                  HttpSession session){
 
-        hotelId=5;
-        Page<Room> page = hotelService.findRoom1(hotelId, pageNumber);
+        Hotel firm = (Hotel) session.getAttribute("loginFirm");
+        Page<Room> page = roomService.findRoom1(firm.getHotelId(), keyword,pageNumber);
         List<Room> list = page.getContent();
         mav.getModel().put("roomList", list);
         mav.getModel().put("page",page);
-        mav.getModel().put("roomKeyword",keyword);
+        mav.getModel().put("firmRoomKeyword",keyword);
         mav.setViewName("firmRoomManage");
 
         return mav;

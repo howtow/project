@@ -29,7 +29,7 @@
         <div  style="top:0;left: 0;" class="col-11">
             <form action="firmRoomManage" >
             <label >搜尋</label>
-            <input type="text" name="roomKeyword" >
+            <input type="text" name="firmRoomKeyword" >
             <input type="submit" >
             </form>
             <div>

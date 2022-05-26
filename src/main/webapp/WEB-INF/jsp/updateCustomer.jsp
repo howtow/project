@@ -21,23 +21,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-    <style>
-        html, body {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        .header {
-            height: 100px;
-            width: auto;
-            background-color: #3C85E8;
-            border: solid 1px black;
-
-        }
-
-        .info {
-            text-align: justify;
-        }
     </style>
 </head>
 <body>
@@ -72,6 +55,7 @@
             </div>
             <div class="form-group">
                 <label for="customerName">姓名</label>
+                <form:errors path="userName"/>
                 <form:input type="text" class="form-control" id="customerName" aria-describedby="emailHelp"
                             path="userName" cssStyle="width: 300px"/>
             </div>

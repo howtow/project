@@ -30,7 +30,5 @@ public interface HotelDao extends JpaRepository<Hotel,Integer> {
     @Query("from Hotel where HotelAccount=?1 and HotelPassword=?2")
     Hotel findByHotelAccountAndHotelPassword(String HotelAccount,String HotelPassword);
 
-    @Query("select r from Room r where r.hotel.hotelId= :id")
-    Page<Room> findRoomByHotel_HotelId(@Param("id") Integer id,Pageable pageable);
 
 }

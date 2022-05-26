@@ -62,8 +62,8 @@ public class BackLoginController {
 
 //    後台登出
     @GetMapping("/adminLogout")
-    public String backLogout(HttpSession httpSession, HttpServletRequest request, HttpServletResponse response,
-                             RedirectAttributes redirectAttributes){
+    public String backLogout( HttpServletRequest request
+                             ){
 
         request.getSession().invalidate();
 

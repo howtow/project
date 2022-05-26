@@ -45,10 +45,14 @@ public class CustomerController {
 
     //更新會員資料
     @PostMapping("postEditCustomer")
-    public String editCustomer(@ModelAttribute("customerBean") Customer customer){
+    public String editCustomer(@Valid @ModelAttribute("customerBean") Customer customer,BindingResult br){
 
-        customerService.updateCustomer(customer);
-        return "redirect:customerManage";
+        if(!br.hasErrors()){
+            customerService.updateCustomer(customer);
+            return "redirect:customerManage";
+        }
+
+        return "updateCustomer";
 
     }
 

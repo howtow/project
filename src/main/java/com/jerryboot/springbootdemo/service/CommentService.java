@@ -30,4 +30,5 @@ public class CommentService {
     public void deleteComment(Integer id){
         commentDao.deleteCommentByCommentId(id);
     }
+
 }
