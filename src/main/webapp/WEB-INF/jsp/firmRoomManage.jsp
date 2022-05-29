@@ -33,7 +33,7 @@
             <input type="submit" >
             </form>
             <div>
-                <button class="justify-content-end"><a href="${contextRoot}/room/add">新增房間</a></button>
+                <button class="justify-content-end"><a href="${contextRoot}/firm/add">新增房間</a></button>
             </div>
             <table  class="table table-striped table-bordered table-secondary" id="roomTable">
                 <thead>

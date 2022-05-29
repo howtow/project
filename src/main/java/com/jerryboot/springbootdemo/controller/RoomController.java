@@ -2,7 +2,6 @@ package com.jerryboot.springbootdemo.controller;
 
 import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.model.Room;
-import com.jerryboot.springbootdemo.model.RoomDao;
 import com.jerryboot.springbootdemo.model.RoomImg;
 import com.jerryboot.springbootdemo.service.HotelService;
 import com.jerryboot.springbootdemo.service.RoomImgService;
@@ -181,6 +180,62 @@ public class RoomController {
         return "redirect:firmRoomManage";
     }
 
-}
+    //跳到新增房間頁面
+    @GetMapping("firm/add")
+    public String addRoom1() {
+        return "firmAddRoom";
+    }
+
+    //新增房間
+    @PostMapping("/firmAddRoom")
+    public String PostAddRoom1(Model model,
+                              @RequestParam("roomName") String roomName,
+                              @RequestParam("price") String price,
+                              @RequestParam("allTags") String tag,
+                              @RequestParam("upperLimit") Integer upperLimit,
+                              @RequestParam("description") String description,
+                              @RequestParam("pic") MultipartFile[] pic,
+                              @RequestParam("imgDescription") String imgDescription,
+                               HttpSession session)
+            throws IOException {
+        String[] tagArr = tag.split(",");
+        StringBuilder tagBuilder = new StringBuilder();
+        for (String s : tagArr) {
+            if (!s.isEmpty()) {
+                tagBuilder.append(s);
+                tagBuilder.append(",");
+            }
+        }
+        tag = tagBuilder.toString();
+
+        Hotel firm =(Hotel) session.getAttribute("loginFirm");
+        Hotel hotelById = hotelService.getHotelById(firm.getHotelId());
+            Room room = new Room();
+            room.setRoomName(roomName);
+            room.setPrice(price);
+            room.setUpperLimit(upperLimit);
+            room.setDescription(description);
+            room.setTag(tag);
+            //和飯店關聯
+            room.setHotel(hotelById);
+            roomService.saveRoom(room);
+            System.out.println(room);
+            //新增房間照片(用RoomImgService)
+            for (MultipartFile p : pic) {
+                RoomImg img = new RoomImg();
+                img.setImg(p.getBytes());
+                img.setImgDescribe(imgDescription);
+                //和房間關聯
+                img.setRoom(room);
+                roomImgService.saveRoomImg(img);
+
+            }
+            model.addAttribute("message", "新增成功");
+            return "redirect:firmRoomManage";
+
+        }
+
+    }
+
 
 
