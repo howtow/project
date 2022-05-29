@@ -27,6 +27,11 @@
         <div class="col-1">
         </div>
         <div class="col-11" style="top:0px">
+            <form action="firmBookingManage" >
+                <label >搜尋</label>
+                <input type="text" name="firmBookingKeyword" >
+                <input type="submit" >
+            </form>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-primary">
                     <thead>
@@ -43,7 +48,7 @@
 <%--                        <td>客戶ID</td>--%>
 <%--                        <td>飯店ID</td>--%>
 <%--                        <td>飯店ID</td>--%>
-                        <td>編輯</td>
+<%--                        <td>編輯</td>--%>
                         <td>刪除</td>
                     </tr>
                     </thead>
@@ -62,8 +67,8 @@
 <%--                            <td>${oneBooking.userId}</td>--%>
 <%--                            <td>${oneBooking.hotelId}</td>--%>
 <%--                            <td>${oneBooking.roomId}</td>--%>
-                            <td><a href="${contextRoot}/editBooking?bookingId=${oneBooking.bookingId}">編輯</a></td>
-                            <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteBooking?bookingId=${oneBooking.bookingId}">刪除</a></td>
+<%--                            <td><a href="${contextRoot}/editBooking?bookingId=${oneBooking.bookingId}">編輯</a></td>--%>
+                            <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/firmDeleteBooking?bookingId=${oneBooking.bookingId}">刪除</a></td>
                         </tr>
                         </tbody>
 

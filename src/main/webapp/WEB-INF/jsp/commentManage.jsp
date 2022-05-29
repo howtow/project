@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-1">
         </div>
-        <div class="col-11" style="top:0px">
+        <div class="col-11" style="top:0px;left: 0">
             <form action="commentManage" >
                 <label >搜尋</label>
                 <input type="text" name="commentKeyword" >

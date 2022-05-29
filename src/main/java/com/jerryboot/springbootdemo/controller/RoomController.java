@@ -2,6 +2,7 @@ package com.jerryboot.springbootdemo.controller;
 
 import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.model.Room;
+import com.jerryboot.springbootdemo.model.RoomDao;
 import com.jerryboot.springbootdemo.model.RoomImg;
 import com.jerryboot.springbootdemo.service.HotelService;
 import com.jerryboot.springbootdemo.service.RoomImgService;
@@ -171,6 +172,13 @@ public class RoomController {
 
         return mav;
 
+    }
+
+    //廠商刪除房間
+    @GetMapping("/firmDeleteRoom")
+    public String firmDeleteRoom(@RequestParam("roomId") Integer id){
+        roomService.deleteRoom(id);
+        return "redirect:firmRoomManage";
     }
 
 }

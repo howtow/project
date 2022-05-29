@@ -39,4 +39,19 @@ public class BookingService {
         Booking booking1 = bookingDao.save(booking);
     }
 
+
+//    -------------------------------------------------
+//    廠商自己的訂單
+
+    public Page<Booking> findBooking(Integer id,String keyword,Integer pageNumber){
+        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "bookingId");
+        if (keyword!=null){
+            return bookingDao.findBookingByHotel_HotelId2(keyword,id,pageable);
+        }
+        return bookingDao.findBookingByHotel_HotelId(id,pageable);
+
+
+    }
+
 }
+

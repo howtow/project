@@ -1,6 +1,7 @@
 package com.jerryboot.springbootdemo.controller;
 
 import com.jerryboot.springbootdemo.model.Booking;
+import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.constraints.Email;
 import java.util.List;
 
@@ -57,5 +59,27 @@ public class BookingController {
         return "redirect:bookingManage";
     }
 
+//    -------------------------------------
+
+    @GetMapping("/firmBookingManage")
+    public ModelAndView bookingList(ModelAndView mav, @RequestParam(value = "p",defaultValue = "1") Integer pageNumber,
+                                    @RequestParam(value = "firmBookingKeyword",required = false) String keyword, HttpSession session){
+
+        Hotel firm =(Hotel) session.getAttribute("loginFirm");
+        Page<Booking> page = bookingService.findBooking(firm.getHotelId(), keyword, pageNumber);
+        List<Booking> list = page.getContent();
+        mav.getModel().put("bookingList",list);
+        mav.getModel().put("page",page);
+        mav.getModel().put("firmBookingKeyword",keyword);
+        mav.setViewName("firmBookingManage");
+
+        return mav;
+    }
+
+    @GetMapping("/firmDeleteBooking")
+    public String firmDeleteBooking(@RequestParam(name = "bookingId") Integer id){
+        bookingService.deleteBookingById(id);
+        return "redirect:firmBookingManage";
+    }
 
 }

@@ -28,6 +28,9 @@ public class Room {
     @Column(name = "Description")
     private String description;
 
+    @Column(name = "capaticy")
+    private Integer capacity;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "HotelID")
@@ -41,6 +44,8 @@ public class Room {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
     private Set<RoomImg> roomImg = new LinkedHashSet<RoomImg>();
+
+
 
 
     public Room() {
@@ -125,6 +130,14 @@ public class Room {
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
     }
 
     @Override

@@ -10,6 +10,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpSession;
+
 @Service
 @Transactional
 public class CommentService {
@@ -28,7 +30,23 @@ public class CommentService {
 
     //刪除評論
     public void deleteComment(Integer id){
+
         commentDao.deleteCommentByCommentId(id);
     }
+
+//    -------------------------------------------
+
+    //廠商找到自己的評論
+    public Page<Comment> findComment(Integer id,String keyword,Integer pageNumber){
+        Pageable pageable = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "commentId");
+
+        if (keyword!=null){
+            return commentDao.findCommentByHotel_HotelId(keyword,id,pageable);
+
+        }
+        return commentDao.findCommentByHotel_HotelId2(id,pageable);
+
+    }
+
 
 }

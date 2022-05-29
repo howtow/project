@@ -25,10 +25,10 @@
     <div class="row">
         <div class="col-1">
         </div>
-        <div class="col-11" style="top:0px">
-            <form action="commentManage" >
+        <div class="col-11" style="top:0px;left: 0">
+            <form action="firmCommentManage" >
                 <label >搜尋</label>
-                <input type="text" name="commentKeyword" >
+                <input type="text" name="firmCommentKeyword" >
                 <input type="submit" >
             </form>
             <div class="table-responsive">
@@ -53,7 +53,7 @@
                             <td>${oneComment.customer.userName}</td>
                             <td>${oneComment.room.roomName}</td>
                             <td>${oneComment.hotel.hotelName}</td>
-                            <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteComment?commentId=${oneComment.commentId}">刪除</a></td>
+                            <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/firmDeleteComment?commentId=${oneComment.commentId}">刪除</a></td>
                         </tr>
                         </tbody>
 
