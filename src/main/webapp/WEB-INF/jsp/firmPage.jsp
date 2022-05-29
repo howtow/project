@@ -30,6 +30,12 @@
         <!-- <i class='bx bx-menu' id="btn"></i> -->
     </div>
     <ul class="nav-list">
+        <li>
+            <a href="${contextRoot}/firmHotelManage">
+                <i class='bx bx-home-heart'></i>
+                <span class="links_name hotel123456">編輯旅館</span>
+            </a>
+        </li>
         <!-- 房間管理和Icon-->
         <li>
             <a href="${contextRoot}/firmRoomManage" >
