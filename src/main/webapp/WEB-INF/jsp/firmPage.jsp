@@ -31,7 +31,7 @@
     </div>
     <ul class="nav-list">
         <li>
-            <a href="${contextRoot}/firmHotelManage">
+            <a href="${contextRoot}/firmEditHotel">
                 <i class='bx bx-home-heart'></i>
                 <span class="links_name hotel123456">編輯旅館</span>
             </a>

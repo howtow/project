@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -75,6 +76,24 @@ public class HotelManageController {
         hotelService.deleteHotelById(id);
 
         return "redirect:hotelManage";
+    }
+//-----------------------------------------------
+    //廠商更新旅館資料
+    @GetMapping("/firmEditHotel")
+    public String firmEditHotel(HttpSession session, Model model){
+        Hotel firm = (Hotel) session.getAttribute("loginFirm");
+        Hotel hotel = hotelService.getHotelById(firm.getHotelId());
+        model.addAttribute("hotelBean" ,hotel);
+
+        return "firmUpdateHotel";
+    }
+
+    @PostMapping("firmPostEditHotel")
+    public String firmEditHotel(@ModelAttribute("hotelBean") Hotel hotel){
+
+        hotelService.updateHotel(hotel);
+        return "firmPage";
+
     }
 
 

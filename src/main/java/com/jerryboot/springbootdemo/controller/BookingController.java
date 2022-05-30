@@ -61,6 +61,7 @@ public class BookingController {
 
 //    -------------------------------------
 
+    //廠商訂單
     @GetMapping("/firmBookingManage")
     public ModelAndView bookingList(ModelAndView mav, @RequestParam(value = "p",defaultValue = "1") Integer pageNumber,
                                     @RequestParam(value = "firmBookingKeyword",required = false) String keyword, HttpSession session){
