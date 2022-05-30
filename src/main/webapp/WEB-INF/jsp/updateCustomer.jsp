@@ -20,7 +20,15 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <style>
+        label {
+            font-family: 微軟正黑體, serif;
+            color: #005cbf;
+            letter-spacing: 2px;
+        }
+        body {
+            background-color: #005cbf;
+        }
     </style>
 </head>
 <body>
@@ -42,9 +50,10 @@
                 <form:input type="text" class="form-control" id="customerId" aria-describedby="emailHelp" path="userId"
                             cssStyle="width: 300px" readonly="true"/>
             </div>
-            <form:errors path="email"/>
+
             <div class="form-group">
                 <label for="customerEmail">電子信箱</label>
+                <form:errors path="email" cssStyle="color: red"/>
                 <form:input type="email" class="form-control" id="customerEmail" aria-describedby="emailHelp"
                             path="email" cssStyle="width: 300px"/>
             </div>
@@ -55,7 +64,7 @@
             </div>
             <div class="form-group">
                 <label for="customerName">姓名</label>
-                <form:errors path="userName"/>
+                <form:errors path="userName" cssStyle="color: red"/>
                 <form:input type="text" class="form-control" id="customerName" aria-describedby="emailHelp"
                             path="userName" cssStyle="width: 300px"/>
             </div>

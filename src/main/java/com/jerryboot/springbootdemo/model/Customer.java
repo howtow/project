@@ -31,6 +31,8 @@ public class Customer {
 	private Integer userId;
 
 	@Column(name = "Email")
+	@Email(message = "請輸入Email")
+	@NotEmpty(message = "請輸入Email")
 	private String email;
 	
 	@Column(name = "Password")
