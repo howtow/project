@@ -32,14 +32,13 @@ public class Customer {
 	private Integer userId;
 
 	@Column(name = "Email")
-	@Email(message = "請輸入Email")
 	private String email;
 	
 	@Column(name = "Password")
 	private String password;
 	
 	@Column(name = "UserName")
-	@NotEmpty(message = "請輸入名字")
+
 	private String userName;
 	
 	@Column(name = "Phone")
@@ -65,7 +64,39 @@ public class Customer {
 	@Column(name = "State")
 	private String state;
 
-	
+	@Column(name = "Enabled")
+	private boolean enabled;
+
+	@Column(name = "Verification_code", updatable = false)
+	private String verificationCode;
+
+	@Column(name = "Salt")
+	private Integer salt;
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+
+	public Integer getSalt() {
+		return salt;
+	}
+
+	public void setSalt(Integer salt) {
+		this.salt = salt;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
 	private Set<Comment> comment = new LinkedHashSet<Comment>();
 	
@@ -181,31 +212,24 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Customer [userId=");
-		builder.append(userId);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", userName=");
-		builder.append(userName);
-		builder.append(", phone=");
-		builder.append(phone);
-		builder.append(", birthday=");
-		builder.append(birthday);
-		builder.append(", nationality=");
-		builder.append(nationality);
-		builder.append(", gender=");
-		builder.append(gender);
-		builder.append(", address=");
-		builder.append(address);
-		builder.append(", creditCard=");
-		builder.append(creditCard);
-		builder.append(", state=");
-		builder.append(state);
-		builder.append("]");
-		return builder.toString();
+		final StringBuffer sb = new StringBuffer("Customer{");
+		sb.append("userId=").append(userId);
+		sb.append(", email='").append(email).append('\'');
+		sb.append(", password='").append(password).append('\'');
+		sb.append(", userName='").append(userName).append('\'');
+		sb.append(", phone=").append(phone);
+		sb.append(", birthday=").append(birthday);
+		sb.append(", nationality='").append(nationality).append('\'');
+		sb.append(", gender='").append(gender).append('\'');
+		sb.append(", address='").append(address).append('\'');
+		sb.append(", creditCard='").append(creditCard).append('\'');
+		sb.append(", state='").append(state).append('\'');
+		sb.append(", enabled=").append(enabled);
+		sb.append(", verificationCode='").append(verificationCode).append('\'');
+		sb.append(", salt=").append(salt);
+		sb.append(", comment=").append(comment);
+		sb.append(", booking=").append(booking);
+		sb.append('}');
+		return sb.toString();
 	}
-
 }

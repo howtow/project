@@ -53,7 +53,7 @@
         </div>
         <div style="top:0;left: 0;" class="col-5 mt-3">
 
-            <form:form action="${contextRoot}/postEditCustomer" modelAttribute="customerBean" method="POST">
+            <form:form action="${contextRoot}/postEditCustomer" modelAttribute="customerBean" method="GET">
                 <%--                沒加id欄位編輯會變成新增--%>
             <div class="form-group">
                 <label for="customerId">ID</label>
@@ -65,53 +65,51 @@
                 <label for="customerEmail">電子信箱</label>
                 <form:errors path="email" cssStyle="color: red"/>
                 <form:input type="email" class="form-control" id="customerEmail" aria-describedby="emailHelp"
-                            path="email" cssStyle="width: 300px"/>
+                            path="email" cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label for="customerPassword">密碼</label>
                 <form:input type="text" class="form-control" id="customerPassword" path="password"
-                            cssStyle="width: 300px"/>
+                            cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label for="customerName">姓名</label>
                 <form:errors path="userName" cssStyle="color: red"/>
                 <form:input type="text" class="form-control" id="customerName" aria-describedby="emailHelp"
-                            path="userName" cssStyle="width: 300px"/>
+                            path="userName" cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label for="customerPhone">電話</label>
                 <form:input type="text" class="form-control" id="customerPhone" aria-describedby="emailHelp"
-                            path="phone" cssStyle="width: 300px"/>
+                            path="phone" cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label for="customerBirthday">生日</label>
                 <form:input type="date" class="form-control" id="customerBirthday" path="birthday" pattern="yyyy-MM-dd"
-                            cssStyle="width: 300px"/>
+                            cssStyle="width: 300px" readonly="true"/>
             </div>
         </div>
         <div style="top:0;left: 0;" class="col-5 mt-3">
             <div class="form-group">
                 <label for="customerPhone">國家</label>
                 <form:input type="text" class="form-control" id="customerPhone" path="nationality"
-                            cssStyle="width: 300px"/>
+                            cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label>性別</label>
                     <%--                    <form:input type="text" class="form-control" id="customerPhone"  path="gender" cssStyle="width: 300px"/>--%>
-                <form:select path="gender">
-                    <form:option value="男" label="男"/>
-                    <form:option value="女" label="女"/>
-                </form:select>
+                <form:input type="text" class="form-control" id="customerPhone" path="gender"
+                            cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label for="customerAddress">地址</label>
                 <form:input type="text" class="form-control" id="customerAddress" path="address"
-                            cssStyle="width: 500px"/>
+                            cssStyle="width: 500px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label for="customerCreditCard">信用卡號</label>
                 <form:input type="text" class="form-control" id="customerCreditCard" path="creditCard"
-                            cssStyle="width: 300px" pattern="[0-9]{13,16}"/>
+                            cssStyle="width: 300px" pattern="[0-9]{13,16}" readonly="true"/>
             </div>
             <div class="form-group">
                 <form:input type="hidden" class="form-control" id="customerState" path="state" cssStyle="width: 300px"/>
@@ -120,11 +118,11 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-4">
-                    <input type="submit" value="送出" id="btn">
+                    <input type="submit" value="返回" id="btn">
                 </div>
                 <div class="col-4"></div>
             </div>
-            </div>
+        </div>
 
             </form:form>
         </div>

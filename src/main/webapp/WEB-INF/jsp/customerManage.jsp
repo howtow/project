@@ -45,7 +45,7 @@
                     <td>性別</td>
 <%--                    <td>住址</td>--%>
 <%--                    <td>信用卡</td>--%>
-                    <td>編輯</td>
+                    <td>查看</td>
                     <td>刪除</td>
                 </tr>
                 </thead>
@@ -62,7 +62,7 @@
                         <td>${oneCustomer.gender}</td>
 <%--                        <td>${oneCustomer.address}</td>--%>
 <%--                        <td>${oneCustomer.creditCard}</td>--%>
-                        <td><a href="${contextRoot}/editCustomer?userId=${oneCustomer.userId}">編輯</a></td>
+                        <td><a href="${contextRoot}/editCustomer?userId=${oneCustomer.userId}">查看</a></td>
                         <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteCustomer?userId=${oneCustomer.userId}">刪除</a></td>
                     </tr>
                     </tbody>
