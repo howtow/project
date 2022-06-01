@@ -20,21 +20,30 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <style>
-        label {
-            font-family: 微軟正黑體, serif;
-            color: #005cbf;
-            letter-spacing: 2px;
-        }
-        body {
-            background-color: #005cbf;
-        }
-    </style>
+    <link rel="stylesheet" href="${contextRoot}/css/formtest.css">
+<%--    <style>--%>
+<%--        label {--%>
+<%--            font-family: 微軟正黑體, serif;--%>
+<%--            color: #005cbf;--%>
+<%--            letter-spacing: 2px;--%>
+<%--        }--%>
+<%--        body {--%>
+<%--            background-color: #005cbf;--%>
+<%--        }--%>
+<%--        .form-control{--%>
+<%--            padding:5px 15px; border:2px black solid;--%>
+<%--            cursor:pointer;--%>
+<%--            -webkit-border-radius: 5px;--%>
+<%--            border-radius: 5px;--%>
+<%--        }--%>
+<%--    </style>--%>
 </head>
 <body>
-<div class="container-fluid header ">
+<div class="container">
     <div class="row">
+        <div class="col-11" style="left: 400px;">
         <h1 class="info">會員資料</h1>
+        </div>
     </div>
 </div>
 
@@ -43,6 +52,7 @@
         <div class="col-1">
         </div>
         <div style="top:0;left: 0;" class="col-5 mt-3">
+
             <form:form action="${contextRoot}/postEditCustomer" modelAttribute="customerBean" method="POST">
                 <%--                沒加id欄位編輯會變成新增--%>
             <div class="form-group">
