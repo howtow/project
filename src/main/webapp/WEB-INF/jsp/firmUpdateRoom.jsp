@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
-<jsp:include page="adminPage.jsp"/>
+<jsp:include page="firmPage.jsp"/>
 <html>
 <head>
     <title>更新房間資料</title>
@@ -33,7 +33,7 @@
         <div class="col-1">
         </div>
         <div style="top:0;left: 0;" class="col-10 mt-3">
-            <form:form action="${contextRoot}/postEditRoom" modelAttribute="roomBean" method="POST" enctype="multipart/form-data">
+            <form:form action="${contextRoot}/firmPostEditRoom" modelAttribute="roomBean" method="POST" enctype="multipart/form-data">
                 <%--                沒加id欄位編輯會變成新增--%>
             <div class="form-group">
                 <label>房間ID</label>
@@ -70,11 +70,11 @@
 
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-5">
-                    <input type="submit" value="送出" id="btn">
+            <div class="row justify-content-end">
+                <div class="col-4">
+                    <input type="submit" value="送出">
                 </div>
-                <div class="col-5"></div>
+                <div class="col-4"></div>
             </div>
         </div>
         </form:form>

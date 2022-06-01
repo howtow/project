@@ -19,7 +19,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="${contextRoot}/css/manage.css">
 </head>
 <body>
 <div class="container">
@@ -59,7 +59,7 @@
                         <td>${oneRoom.upperLimit}</td>
                         <td>${oneRoom.description}</td>
                         <td>${oneRoom.hotel.hotelId}</td>
-                        <td><a href="${contextRoot}/editRoom?roomId=${oneRoom.roomId}">編輯</a></td>
+                        <td><a href="${contextRoot}/firmEditRoom?roomId=${oneRoom.roomId}">編輯</a></td>
                         <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/firmDeleteRoom?roomId=${oneRoom.roomId}">刪除</a></td>
                     </tr>
                     </tbody>

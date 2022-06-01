@@ -41,7 +41,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-11" style="left: 400px;">
+        <div class="col-11" style="left: 37%;">
         <h1 class="info">會員資料</h1>
         </div>
     </div>
@@ -120,7 +120,7 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-4">
-                    <input type="submit" value="送出">
+                    <input type="submit" value="送出" id="btn">
                 </div>
                 <div class="col-4"></div>
             </div>

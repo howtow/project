@@ -18,11 +18,14 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="${contextRoot}/css/formtest.css">
 </head>
 <body>
-<div class="container-fluid header ">
+<div class="container">
     <div class="row">
-        <h1 class="info">旅館資料</h1>
+        <div class="col-11" style="left: 37%;">
+            <h1 class="info">新增房間</h1>
+        </div>
     </div>
 </div>
 <div class="container">

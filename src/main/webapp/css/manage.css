@@ -1,0 +1,18 @@
+th {
+    text-align: center;
+}
+.pageNumber{
+    font-size: 20px;
+    color: black;
+    padding: 0px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #0066CC;
+    display: inline;
+    margin: 0;
+}
+.pageNumber.active{
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}

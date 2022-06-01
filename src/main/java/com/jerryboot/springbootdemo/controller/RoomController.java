@@ -234,6 +234,34 @@ public class RoomController {
             return "redirect:firmRoomManage";
 
         }
+    //廠商跳到更新房間頁面
+    @GetMapping("/firmEditRoom")
+    public String firmEditRoom(Model model, @RequestParam("roomId") Integer id) {
+        Room room = roomService.getRoomById(id);
+        model.addAttribute("roomBean", room);
+        return "firmUpdateRoom";
+    }
+
+    //廠商更新房間資料
+    @PostMapping("firmPostEditRoom")
+    public String firmEditRoom(@ModelAttribute("roomBean") Room room,
+                               @RequestParam("pic")MultipartFile[] pic) {
+        for (MultipartFile p : pic) {
+            try {
+                RoomImg img = new RoomImg();
+                img.setImg(p.getBytes());
+                img.setRoom(room);
+                roomImgService.saveRoomImg(img);
+                roomService.saveRoom(room);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        roomService.updateRoom(room);
+        return "redirect:firmRoomManage";
+
+    }
 
     }
 

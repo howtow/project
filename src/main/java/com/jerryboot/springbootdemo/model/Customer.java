@@ -19,6 +19,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.CreditCardNumber;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -32,7 +33,6 @@ public class Customer {
 
 	@Column(name = "Email")
 	@Email(message = "請輸入Email")
-	@NotEmpty(message = "請輸入Email")
 	private String email;
 	
 	@Column(name = "Password")
@@ -59,6 +59,7 @@ public class Customer {
 	private String address;
 	
 	@Column(name = "CreditCard")
+	@CreditCardNumber
 	private String creditCard;
 	
 	@Column(name = "State")

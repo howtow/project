@@ -19,7 +19,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="${contextRoot}/css/manage.css">
 </head>
 <body>
 <div class="container">
@@ -35,7 +35,7 @@
             <div>
                 <button class="justify-content-end"><a href="${contextRoot}/room/add">新增房間</a></button>
             </div>
-            <table  class="table table-striped table-bordered table-secondary" id="roomTable">
+            <table  class="table table-striped table-bordered table-secondary align-middle table-hover" id="roomTable">
                 <thead>
                 <tr>
                     <td>roomID</td>
@@ -67,21 +67,20 @@
             </table>
             <div class="row justify-content-end">
                 <div class="col-12">
-                    <c:forEach var="pageNumber" begin="1" end="${page.totalPages}">
+                    <c:forEach var="pageNumber" begin="1" end="${page.totalPages}" >
                         <c:choose>
 
                             <c:when  test="${page.number != pageNumber-1 }">
-                                <a href="${contextRoot}/roomManage?p=${pageNumber}&roomKeyword=${roomKeyword}"><c:out value="${pageNumber}"></c:out></a>
+                                <a class="pageNumber" href="${contextRoot}/roomManage?p=${pageNumber}&roomKeyword=${roomKeyword}"><c:out value="${pageNumber}"></c:out></a>
                             </c:when>
 
 
                             <c:otherwise>
-                                <c:out value="${pageNumber}"></c:out>
+                                <a class="pageNumber"> <c:out value="${pageNumber}"></c:out></a>
                             </c:otherwise>
 
                         </c:choose>
                         <c:if test="${pageNumber != page.totalPages}">
-                            |
                         </c:if>
 
                     </c:forEach>

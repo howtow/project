@@ -19,6 +19,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="${contextRoot}/css/manage.css">
 </head>
 <body>
 <div class="container">
@@ -31,7 +32,7 @@
                 <input type="text" name="customerKeyword" >
                 <input type="submit" >
             </form>
-            <table  class="table table-striped table-bordered table-secondary" id="customerTable">
+            <table  class="table table-striped table-bordered table-secondary align-middle table-hover" id="customerTable">
                 <thead>
                 <tr>
                     <td>UserID</td>
@@ -73,12 +74,12 @@
                         <c:choose>
 
                             <c:when  test="${page.number != pageNumber-1 }">
-                                <a href="${contextRoot}/customerManage?p=${pageNumber}&customerKeyword=${customerKeyword}"><c:out value="${pageNumber}"></c:out></a>
+                                <a class="pageNumber" href="${contextRoot}/customerManage?p=${pageNumber}&customerKeyword=${customerKeyword}"><c:out value="${pageNumber}"></c:out></a>
                             </c:when>
 
 
                             <c:otherwise>
-                                <c:out value="${pageNumber}"></c:out>
+                                <a class="pageNumber"><c:out value="${pageNumber}"></c:out></a>
                             </c:otherwise>
 
                         </c:choose>

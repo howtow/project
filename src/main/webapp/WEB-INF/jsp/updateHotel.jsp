@@ -18,29 +18,14 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <style>
-        html, body {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        .header {
-            height: 100px;
-            width: auto;
-            background-color: #3C85E8;
-            border: solid 1px black;
-
-        }
-
-        .info {
-            text-align: justify;
-        }
-    </style>
+    <link rel="stylesheet" href="${contextRoot}/css/formtest.css">
 </head>
 <body>
-<div class="container-fluid header ">
+<div class="container">
     <div class="row">
-        <h1 class="info">旅館資料</h1>
+        <div class="col-11" style="left: 37%;">
+            <h1 class="info">旅館資料</h1>
+        </div>
     </div>
 </div>
 <div class="container">
@@ -112,7 +97,7 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-4">
-                    <input type="submit" value="送出">
+                    <input type="submit" value="送出" id="btn">
                 </div>
                 <div class="col-4"></div>
             </div>

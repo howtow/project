@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
+    <link rel="stylesheet" href="${contextRoot}/css/manage.css">
 </head>
 <body>
 <div class="container">
@@ -39,7 +39,7 @@
             </div>
             <div class="table-responsive">
                 <%--            <input type="text" value="搜尋欄位">--%>
-                <table class="table table-striped table-bordered table-primary" id="hotelTable">
+                <table class="table table-striped table-bordered table-secondary align-middle table-hover" id="hotelTable">
                     <thead>
                     <tr>
                         <th>id</th>
@@ -86,18 +86,17 @@
                 <c:choose>
 
                     <c:when test="${page.number != pageNumber-1 }">
-                        <a href="${contextRoot}/hotelManage?p=${pageNumber}&hotelKeyword=${hotelKeyword}"><c:out value="${pageNumber}"></c:out></a>
+                        <a class="pageNumber" href="${contextRoot}/hotelManage?p=${pageNumber}&hotelKeyword=${hotelKeyword}"><c:out value="${pageNumber}"></c:out></a>
                     </c:when>
 
 
                     <c:otherwise>
-                        <c:out value="${pageNumber}"></c:out>
+                        <a class="pageNumber"><c:out value="${pageNumber}"></c:out></a>
                     </c:otherwise>
 
                 </c:choose>
 
                 <c:if test="${pageNumber != page.totalPages}">
-                    |
                 </c:if>
 
             </c:forEach>
