@@ -34,7 +34,7 @@ public class CustomerController {
 
     }
 
-    //跳到更新會員頁面 改成查看會員資料頁面
+    //跳到更新會員頁面 改成跳到查看會員資料
     @GetMapping("/editCustomer")
     public String editCustomer(@RequestParam("userId")Integer id,Model model){
         Customer customer = customerService.getCustomerById(id);
@@ -43,7 +43,7 @@ public class CustomerController {
         return "updateCustomer";
     }
 
-    //更新會員資料 改成跳回原來頁面
+    //更新會員資料 改成查看會員資料
     @GetMapping("postEditCustomer")
     public String editCustomer(@ModelAttribute("customerBean") Customer customer){
 

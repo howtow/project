@@ -65,16 +65,16 @@
             </div>
                 <div class="form-group">
                     <label>照片上傳</label>
-                    <input type="file" class="form-control" name="pic" multiple="multiple" accept="image/*, .jpeg, .png, .gif, .jpeg" />
+                    <input type="file" class="form-control" name="pic" multiple="multiple" accept="image/*, .jpeg, .png, .gif, .jpeg" style="width: 300px" />
                 </div>
 
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-5">
+            <div class="row justify-content-end">
+                <div class="col-4">
                     <input type="submit" value="送出" id="btn">
                 </div>
-                <div class="col-5"></div>
+                <div class="col-4"></div>
             </div>
         </div>
         </form:form>

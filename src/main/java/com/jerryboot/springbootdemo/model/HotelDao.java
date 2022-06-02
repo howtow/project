@@ -22,7 +22,7 @@ public interface HotelDao extends JpaRepository<Hotel,Integer> {
     public void deleteByHotelId(Integer id);
 
     @Query("select h from Hotel h where " +
-            "concat(h.hotelName, h.add, h.description, h.Tel, h.serviceinfo, h.parkinginfo)"
+            "concat(h.hotelName, h.add, h.Tel, h.serviceinfo, h.parkinginfo)"
             +"like %?1%")
     Page<Hotel> hotelList(String keyword, Pageable pageable);
 

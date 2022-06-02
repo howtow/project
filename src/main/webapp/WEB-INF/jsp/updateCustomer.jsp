@@ -53,7 +53,7 @@
         </div>
         <div style="top:0;left: 0;" class="col-5 mt-3">
 
-            <form:form action="${contextRoot}/postEditCustomer" modelAttribute="customerBean" method="GET">
+            <form:form action="${contextRoot}/postEditCustomer" modelAttribute="customerBean" method="get">
                 <%--                沒加id欄位編輯會變成新增--%>
             <div class="form-group">
                 <label for="customerId">ID</label>
@@ -98,8 +98,8 @@
             <div class="form-group">
                 <label>性別</label>
                     <%--                    <form:input type="text" class="form-control" id="customerPhone"  path="gender" cssStyle="width: 300px"/>--%>
-                <form:input type="text" class="form-control" id="customerPhone" path="gender"
-                            cssStyle="width: 300px" readonly="true"/>
+                <form:input type="text" class="form-control" id="customerAddress" path="gender"
+                            cssStyle="width: 500px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label for="customerAddress">地址</label>
@@ -114,6 +114,16 @@
             <div class="form-group">
                 <form:input type="hidden" class="form-control" id="customerState" path="state" cssStyle="width: 300px"/>
             </div>
+            <div class="form-group">
+                <form:input type="hidden" class="form-control" id="customerState" path="enabled" cssStyle="width: 300px"/>
+            </div>
+            <div class="form-group">
+                <form:input type="hidden" class="form-control" id="customerState" path="salt" cssStyle="width: 300px"/>
+            </div>
+            <div class="form-group">
+                <form:input type="hidden" class="form-control" id="customerState" path="verificationCode" cssStyle="width: 300px"/>
+            </div>
+
             </div>
         <div class="container">
             <div class="row justify-content-end">
@@ -122,7 +132,7 @@
                 </div>
                 <div class="col-4"></div>
             </div>
-        </div>
+            </div>
 
             </form:form>
         </div>

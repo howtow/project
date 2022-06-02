@@ -37,10 +37,10 @@
     </div>
     <ul class="nav-list">
         <!-- 搜尋和Icon (目前應該還用不到，留好看的)-->
-        <li>
-            <i class='bx bx-search'></i>
-            <input type="text" placeholder="Search">
-        </li>
+<%--        <li>--%>
+<%--            <i class='bx bx-search'></i>--%>
+<%--            <input type="text" placeholder="Search">--%>
+<%--        </li>--%>
         <!-- 會員管理和Icon-->
         <li>
             <a href="${contextRoot}/customerManage">
@@ -86,12 +86,12 @@
             </a>
         </li>
         <!-- 設定和Icon (目前應該還用不到)-->
-        <li>
-            <a href="#">
-                <i class='bx bx-cog'></i>
-                <span class="links_name">Setting</span>
-            </a>
-        </li>
+<%--        <li>--%>
+<%--            <a href="#">--%>
+<%--                <i class='bx bx-cog'></i>--%>
+<%--                <span class="links_name">Setting</span>--%>
+<%--            </a>--%>
+<%--        </li>--%>
     </ul>
 
     <!-- ======側導覽列 結束===== -->

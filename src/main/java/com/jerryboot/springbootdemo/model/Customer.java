@@ -38,7 +38,7 @@ public class Customer {
 	private String password;
 	
 	@Column(name = "UserName")
-
+	@NotEmpty(message = "請輸入名字")
 	private String userName;
 	
 	@Column(name = "Phone")
@@ -65,38 +65,15 @@ public class Customer {
 	private String state;
 
 	@Column(name = "Enabled")
-	private boolean enabled;
-
-	@Column(name = "Verification_code", updatable = false)
-	private String verificationCode;
+	private Boolean enabled;
 
 	@Column(name = "Salt")
 	private Integer salt;
 
-	public boolean isEnabled() {
-		return enabled;
-	}
+	@Column(name = "Verification_code")
+	private String verificationCode;
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public String getVerificationCode() {
-		return verificationCode;
-	}
-
-	public void setVerificationCode(String verificationCode) {
-		this.verificationCode = verificationCode;
-	}
-
-	public Integer getSalt() {
-		return salt;
-	}
-
-	public void setSalt(Integer salt) {
-		this.salt = salt;
-	}
-
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
 	private Set<Comment> comment = new LinkedHashSet<Comment>();
 	
@@ -194,6 +171,30 @@ public class Customer {
 		this.state = state;
 	}
 
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Integer getSalt() {
+		return salt;
+	}
+
+	public void setSalt(Integer salt) {
+		this.salt = salt;
+	}
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+
 	public Set<Comment> getComment() {
 		return comment;
 	}
@@ -212,24 +213,23 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		final StringBuffer sb = new StringBuffer("Customer{");
-		sb.append("userId=").append(userId);
-		sb.append(", email='").append(email).append('\'');
-		sb.append(", password='").append(password).append('\'');
-		sb.append(", userName='").append(userName).append('\'');
-		sb.append(", phone=").append(phone);
-		sb.append(", birthday=").append(birthday);
-		sb.append(", nationality='").append(nationality).append('\'');
-		sb.append(", gender='").append(gender).append('\'');
-		sb.append(", address='").append(address).append('\'');
-		sb.append(", creditCard='").append(creditCard).append('\'');
-		sb.append(", state='").append(state).append('\'');
-		sb.append(", enabled=").append(enabled);
-		sb.append(", verificationCode='").append(verificationCode).append('\'');
-		sb.append(", salt=").append(salt);
-		sb.append(", comment=").append(comment);
-		sb.append(", booking=").append(booking);
-		sb.append('}');
-		return sb.toString();
+		return "Customer{" +
+				"userId=" + userId +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", userName='" + userName + '\'' +
+				", phone=" + phone +
+				", birthday=" + birthday +
+				", nationality='" + nationality + '\'' +
+				", gender='" + gender + '\'' +
+				", address='" + address + '\'' +
+				", creditCard='" + creditCard + '\'' +
+				", state='" + state + '\'' +
+				", enabled=" + enabled +
+				", salt=" + salt +
+				", verificationCode='" + verificationCode + '\'' +
+				", comment=" + comment +
+				", booking=" + booking +
+				'}';
 	}
 }
