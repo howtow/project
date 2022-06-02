@@ -151,7 +151,7 @@
             var file = document.getElementById('uploadImg').files
             var showImg = ''
             $.each(file,function(index,value){
-                showImg += '<span id="piclist"><img src="'+URL.createObjectURL(value)+'" style="height:200px;"></span>'
+                showImg += '<span id="piclist"><img src="'+URL.createObjectURL(value)+'" style="height:300px;"></span>'
             })
             $('#showImg').append(showImg)
         })

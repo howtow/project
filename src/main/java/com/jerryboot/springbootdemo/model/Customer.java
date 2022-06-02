@@ -32,7 +32,6 @@ public class Customer {
 	private Integer userId;
 
 	@Column(name = "Email")
-	@Email(message = "請輸入Email")
 	private String email;
 	
 	@Column(name = "Password")
@@ -64,6 +63,15 @@ public class Customer {
 	
 	@Column(name = "State")
 	private String state;
+
+	@Column(name = "Enabled")
+	private Boolean enabled;
+
+	@Column(name = "Salt")
+	private Integer salt;
+
+	@Column(name = "Verification_code")
+	private String verificationCode;
 
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
@@ -163,6 +171,30 @@ public class Customer {
 		this.state = state;
 	}
 
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Integer getSalt() {
+		return salt;
+	}
+
+	public void setSalt(Integer salt) {
+		this.salt = salt;
+	}
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+
 	public Set<Comment> getComment() {
 		return comment;
 	}
@@ -181,31 +213,23 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Customer [userId=");
-		builder.append(userId);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", userName=");
-		builder.append(userName);
-		builder.append(", phone=");
-		builder.append(phone);
-		builder.append(", birthday=");
-		builder.append(birthday);
-		builder.append(", nationality=");
-		builder.append(nationality);
-		builder.append(", gender=");
-		builder.append(gender);
-		builder.append(", address=");
-		builder.append(address);
-		builder.append(", creditCard=");
-		builder.append(creditCard);
-		builder.append(", state=");
-		builder.append(state);
-		builder.append("]");
-		return builder.toString();
+		return "Customer{" +
+				"userId=" + userId +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", userName='" + userName + '\'' +
+				", phone=" + phone +
+				", birthday=" + birthday +
+				", nationality='" + nationality + '\'' +
+				", gender='" + gender + '\'' +
+				", address='" + address + '\'' +
+				", creditCard='" + creditCard + '\'' +
+				", state='" + state + '\'' +
+				", enabled=" + enabled +
+				", salt=" + salt +
+				", verificationCode='" + verificationCode + '\'' +
+				", comment=" + comment +
+				", booking=" + booking +
+				'}';
 	}
-
 }

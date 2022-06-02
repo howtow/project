@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="${contextRoot}/css/formtest.css">
+
 </head>
 <body>
 <div class="container-fluid header ">
@@ -48,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label>標籤</label>
-                <div id="tags">
+                <div id="tags" >
                     <input type="checkbox" class="tag" value="免費盥洗用品" />免費盥洗用品
                     <input type="checkbox" class="tag" value="毛巾" />毛巾
                     <input type="checkbox" class="tag" value="淋浴間" />淋浴間

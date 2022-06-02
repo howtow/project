@@ -19,6 +19,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="${contextRoot}/css/manage.css">
 </head>
 <body>
@@ -28,9 +29,12 @@
         </div>
         <div  style="top:0;left: 0;" class="col-11">
             <form action="customerManage" >
-                <label >搜尋</label>
-                <input type="text" name="customerKeyword" >
-                <input type="submit" >
+                <div class="search" >
+                    <label >
+                        <input type="search" name="customerKeyword" placeholder="搜尋">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                </div>
             </form>
             <table  class="table table-striped table-bordered table-secondary align-middle table-hover" id="customerTable">
                 <thead>
@@ -45,7 +49,7 @@
                     <td>性別</td>
 <%--                    <td>住址</td>--%>
 <%--                    <td>信用卡</td>--%>
-                    <td>編輯</td>
+                    <td>查看</td>
                     <td>刪除</td>
                 </tr>
                 </thead>
@@ -62,7 +66,7 @@
                         <td>${oneCustomer.gender}</td>
 <%--                        <td>${oneCustomer.address}</td>--%>
 <%--                        <td>${oneCustomer.creditCard}</td>--%>
-                        <td><a href="${contextRoot}/editCustomer?userId=${oneCustomer.userId}">編輯</a></td>
+                        <td><a href="${contextRoot}/editCustomer?userId=${oneCustomer.userId}">查看</a></td>
                         <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteCustomer?userId=${oneCustomer.userId}">刪除</a></td>
                     </tr>
                     </tbody>

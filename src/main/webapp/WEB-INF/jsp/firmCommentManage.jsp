@@ -19,6 +19,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="${contextRoot}/css/manage.css">
 </head>
 <body>
@@ -28,12 +29,15 @@
         </div>
         <div class="col-11" style="top:0px;left: 0">
             <form action="firmCommentManage" >
-                <label >搜尋</label>
-                <input type="text" name="firmCommentKeyword" >
-                <input type="submit" >
+                <div class="search" >
+                    <label >
+                        <input type="search" name="firmCommentKeyword" placeholder="搜尋">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                </div>
             </form>
             <div class="table-responsive">
-                <table class="table table-striped table-bordered table-success">
+                <table class="table table-striped table-bordered table-secondary align-middle table-hover">
                     <thead>
                     <tr>
                         <td>評論Id</td>

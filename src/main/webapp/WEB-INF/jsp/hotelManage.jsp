@@ -30,16 +30,19 @@
         </div>
         <div style="top:0;left: 0;" class="col-11">
             <form action="hotelManage" >
-                <label >搜尋</label>
-                <input type="text" name="hotelKeyword" >
-                <i class="fa-solid fa-magnifying-glass"><input type="submit" ></i>
+                <div class="search" >
+                <label >
+                <input type="search" name="hotelKeyword" placeholder="搜尋" class="mt-2">
+                    <i class="fa-solid fa-magnifying-glass mt-2"></i>
+                </label>
+                </div>
             </form>
             <div>
-                <button class="justify-content-end"><a href="${contextRoot}/hotel/add">新增旅館</a></button>
+                <button class="justify-content-end mt-2" id="addHotel"><a href="${contextRoot}/hotel/add">新增旅館</a></button>
             </div>
             <div class="table-responsive">
                 <%--            <input type="text" value="搜尋欄位">--%>
-                <table class="table table-striped table-bordered table-secondary align-middle table-hover" id="hotelTable">
+                <table class="table table-striped table-bordered table-secondary align-middle table-hover mt-2" id="hotelTable">
                     <thead>
                     <tr>
                         <th>id</th>

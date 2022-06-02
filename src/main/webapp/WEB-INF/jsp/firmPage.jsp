@@ -58,12 +58,12 @@
             </a>
         </li>
         <!-- 設定和Icon (目前應該還用不到)-->
-        <li>
-            <a href="#">
-                <i class='bx bx-cog'></i>
-                <span class="links_name">Setting</span>
-            </a>
-        </li>
+<%--        <li>--%>
+<%--            <a href="#">--%>
+<%--                <i class='bx bx-cog'></i>--%>
+<%--                <span class="links_name">Setting</span>--%>
+<%--            </a>--%>
+<%--        </li>--%>
     </ul>
 
     <!-- ======側導覽列 結束===== -->

@@ -98,7 +98,7 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-4">
-                    <input type="submit" value="送出">
+                    <input type="submit" value="送出" id="btn">
                 </div>
                 <div class="col-4"></div>
             </div>

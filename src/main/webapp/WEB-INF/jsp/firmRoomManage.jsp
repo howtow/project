@@ -19,6 +19,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="${contextRoot}/css/manage.css">
 </head>
 <body>
@@ -28,14 +29,17 @@
         </div>
         <div  style="top:0;left: 0;" class="col-11">
             <form action="firmRoomManage" >
-            <label >搜尋</label>
-            <input type="text" name="firmRoomKeyword" >
-            <input type="submit" >
+                <div class="search" >
+                    <label >
+                        <input type="search" name="firmRoomKeyword" placeholder="搜尋">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                </div>
             </form>
             <div>
-                <button class="justify-content-end"><a href="${contextRoot}/firm/add">新增房間</a></button>
+                <button class="justify-content-end" id="addRoom"><a href="${contextRoot}/firm/add">新增房間</a></button>
             </div>
-            <table  class="table table-striped table-bordered table-secondary" id="roomTable">
+            <table  class="table table-striped table-bordered table-secondary align-middle table-hover" id="roomTable">
                 <thead>
                 <tr>
                     <td>roomID</td>

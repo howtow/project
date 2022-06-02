@@ -191,7 +191,7 @@ public class RoomController {
     public String PostAddRoom1(Model model,
                               @RequestParam("roomName") String roomName,
                               @RequestParam("price") String price,
-                              @RequestParam("allTags") String tag,
+                              @RequestParam(value = "allTags") String tag,
                               @RequestParam("upperLimit") Integer upperLimit,
                               @RequestParam("description") String description,
                               @RequestParam("pic") MultipartFile[] pic,
