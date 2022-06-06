@@ -102,14 +102,14 @@ public class HotelManageController {
 
 
     // 根據頁數找到hotel ajax
-//    @GetMapping("/hotelManage1")
-//    @ResponseBody
-//    public List<Hotel> hotelManage(@RequestParam(name = "p",defaultValue = "1")Integer pageNumber){
-//        Page<Hotel> page = hotelService.findHotelByPage(pageNumber);
-//        List<Hotel> content = page.getContent();
-//
-//        return content;
-//    }
+    @GetMapping("/hotelManage1")
+    @ResponseBody
+    public List<Hotel> hotelManage(@RequestParam(name = "p",defaultValue = "1")Integer pageNumber){
+        Page<Hotel> page = hotelService.findHotelByPage(pageNumber);
+        List<Hotel> content = page.getContent();
+
+        return content;
+    }
 
 
 }

@@ -49,6 +49,7 @@
                         <td>信用卡</td>
                         <td>備註</td>
                         <td>入住時間</td>
+                        <td>飯店名字</td>
 <%--                        <td>客戶ID</td>--%>
 <%--                        <td>飯店ID</td>--%>
 <%--                        <td>飯店ID</td>--%>
@@ -68,6 +69,7 @@
                             <td>${oneBooking.creditCard}</td>
                             <td>${oneBooking.annotation}</td>
                             <td>${oneBooking.arriveTimes}</td>
+                            <td>${oneBooking.hotel.hotelName}</td>
 <%--                            <td>${oneBooking.userId}</td>--%>
 <%--                            <td>${oneBooking.hotelId}</td>--%>
 <%--                            <td>${oneBooking.roomId}</td>--%>

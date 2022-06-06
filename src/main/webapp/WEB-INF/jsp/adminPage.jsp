@@ -32,7 +32,7 @@
 %>
 <div class="sidebar">
     <div class="logo_content">
-        <img src="${contextRoot}/image/logo.png"/>
+        <a href="${contextRoot}/newsPage"><img src="${contextRoot}/image/logo.png"/></a>
         <!-- <i class='bx bx-menu' id="btn"></i> -->
     </div>
     <ul class="nav-list">

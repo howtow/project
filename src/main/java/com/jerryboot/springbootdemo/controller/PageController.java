@@ -46,6 +46,11 @@ public class PageController {
 		return modelAndView;
 	}
 
+	@GetMapping("/newsPage")
+	public String newsPage(){
+		return "newsPage";
+	}
+
 
 //	@GetMapping("/hotelManage")
 //	public String hotelManage(){

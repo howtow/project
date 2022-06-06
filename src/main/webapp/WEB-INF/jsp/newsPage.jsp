@@ -1,0 +1,227 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: user
+  Date: 2022/6/5
+  Time: 上午 01:45
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
+<link href="${contextRoot}/css/adminPage.css" rel="stylesheet">
+<jsp:include page="adminPage.jsp"/>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="${contextRoot}/css/manage.css">
+    <title>Title</title>
+
+    <style>
+        .cardBox{
+            position: relative;
+            width: 100%;
+            padding: 20px;
+            display:grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 20px;
+        }
+
+        .cardBox .card{
+            position: relative;
+            background-color: #fff3cd;
+            display: flex;
+            padding: 20px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .cardBox .card .numbers{
+            position: relative;
+            font-size: 2em;
+            font-weight: 500;
+        }
+        #bookingSum{
+            font-size: 24px;
+        }
+        .cardBox .card .cardName{
+            color: #999;
+        }
+        .cardBox .card .iconBox{
+            position: absolute;
+            left:240px;
+            font-size: 2.5em;
+            color: #5249FA;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div style="top:0;left: 0;" class="col-11">
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers" id="member"></div>
+                        <div class="cardName">會員數</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fa-solid fa-person"></i>
+                    </div>
+                </div>
+                    <div class="card">
+                        <div>
+                            <div class="numbers" id="hotel"></div>
+                            <div class="cardName">旅館數</div>
+                        </div>
+                        <div class="iconBox">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
+                    </div>
+                        <div class="card">
+                            <div>
+                                <div class="numbers" id="room"></div>
+                                <div class="cardName">房間數</div>
+                            </div>
+                            <div class="iconBox">
+                                <i class="fa-solid fa-bed"></i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div>
+                                <div class="numbers" id="comment"></div>
+                                <div class="cardName">評論數</div>
+                            </div>
+                            <div class="iconBox">
+                                <i class="fa-solid fa-comment"></i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div>
+                                <div class="numbers" id="bookingSum"></div>
+                                <div class="cardName">訂單總金額</div>
+                            </div>
+                            <div class="iconBox">
+                                <i class="fa-solid fa-clipboard-list"></i>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "http://localhost:8080/Booking/api/customerSum",
+                contentType: 'application/json; charset=UTF-8',
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    let customerSum = '';
+                    $.each(data, function () {
+                        customerSum +=   data.customer  ;
+                        console.log(customerSum)
+                    })
+                    console.log(customerSum)
+                    $('#member').append(customerSum);
+                },
+                error: function (err) {
+                    console.log(err);
+                    alert('ajax發生錯誤')
+                }
+
+            })
+            $.ajax({
+                url: "http://localhost:8080/Booking/api/hotelSum",
+                contentType: 'application/json; charset=UTF-8',
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    let hotelSum= '';
+                    $.each(data, function () {
+                        hotelSum +=   data.hotel  ;
+                    })
+                    $('#hotel').append(hotelSum);
+                },
+                error: function (err) {
+                    console.log(err);
+                    alert('ajax發生錯誤')
+                }
+
+            })
+            $.ajax({
+                url: "http://localhost:8080/Booking/api/bookingSum",
+                contentType: 'application/json; charset=UTF-8',
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    let bookingSum= '';
+                    $.each(data, function () {
+                        bookingSum +=   data.booking+'&nbsp;&nbsp;&nbsp;&nbsp; TWD'  ;
+                    })
+                    $('#bookingSum').append(bookingSum);
+                },
+                error: function (err) {
+                    console.log(err);
+                    alert('ajax發生錯誤')
+                }
+
+            })
+            $.ajax({
+                url: "http://localhost:8080/Booking/api/roomSum",
+                contentType: 'application/json; charset=UTF-8',
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    let roomSum= '';
+                    $.each(data, function () {
+                        roomSum +=   data.room  ;
+                    })
+                    $('#room').append(roomSum);
+                },
+                error: function (err) {
+                    console.log(err);
+                    alert('ajax發生錯誤')
+                }
+
+            })
+            $.ajax({
+                url: "http://localhost:8080/Booking/api/commentSum",
+                contentType: 'application/json; charset=UTF-8',
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    let commentSum= '';
+                    $.each(data, function () {
+                        commentSum +=   data.comment ;
+                    })
+                    $('#comment').append(commentSum);
+                },
+                error: function (err) {
+                    console.log(err);
+                    alert('ajax發生錯誤')
+                }
+
+            })
+        })
+    </script>
+
+</body>
+</html>

@@ -68,5 +68,9 @@ public class HotelService {
             return null;
         }
     }
+    public Integer hotelSum(){
+        return hotelDao.hotelSum();
+    }
+
     }
 

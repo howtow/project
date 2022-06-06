@@ -47,6 +47,11 @@ public class RoomService {
         return roomDao.findRoomByRoomId(id);
     }
 
+    //房間數
+    public Integer roomSum(){
+        return roomDao.roomSum();
+    }
+
 //    -------------------------------------------------------
     //廠商拿到自己的資料
     public Page<Room> findRoom1(Integer id,String keyword, Integer pageNumber) {

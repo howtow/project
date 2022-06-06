@@ -15,18 +15,28 @@ public interface RoomDao extends JpaRepository<Room,Integer> {
 
     Room findRoomByRoomId(Integer id);
 
-     void deleteRoomByRoomId(Integer id);
+    void deleteRoomByRoomId(Integer id);
 
     @Query("select r from Room r where "
-    +"concat(r.roomName, r.price, r.tag, r.description)"+
-    "like %?1%")
-     Page<Room> roomList(String keyword, Pageable pageable);
+            + "concat(r.roomName, r.price, r.tag, r.description)" +
+            "like %?1%")
+    Page<Room> roomList(String keyword, Pageable pageable);
 
-//    廠商搜尋自己所屬房間
+    //房間數
+    @Query(value = "select count(*) from dbo.Room",nativeQuery = true)
+    Integer roomSum();
+
+
+    //    廠商搜尋自己所屬房間
     @Query("select r from Room r where concat(r.roomName, r.price, r.tag, r.description) like %?1% and r.hotel.hotelId=?2")
-    Page<Room> findRoomByHotel_HotelId(String keyword,Integer id,Pageable pageable);
+    Page<Room> findRoomByHotel_HotelId(String keyword, Integer id, Pageable pageable);
 
     //廠商全部的房間
     @Query("select r from Room r where r.hotel.hotelId=?1")
-    Page<Room> findRoomByHotel_HotelId2(Integer id,Pageable pageable);
+    Page<Room> findRoomByHotel_HotelId2(Integer id, Pageable pageable);
+
+    //廠商房間數
+    @Query(value = "select count(*) from dbo.Room join dbo.Hotel on Room.HotelID=Hotel.HotelID where Hotel.HotelID=?1",nativeQuery = true)
+    Integer customerSum1(Integer id);
 }
+

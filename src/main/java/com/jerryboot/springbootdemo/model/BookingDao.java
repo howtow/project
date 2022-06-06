@@ -25,5 +25,8 @@ public  interface BookingDao extends JpaRepository<Booking,Integer> {
     @Query("select b from Booking b where concat(b.bookingName,b.annotation,b.email) like %?1% and b.hotel.hotelId=?2")
     Page<Booking> findBookingByHotel_HotelId2(String keyword,Integer id,Pageable pageable);
 
+    //訂單總額
+    @Query(value = "select sum(cast(Room.price as int)) from dbo.Booking join dbo.Room on Booking.RoomID=Room.RoomID",nativeQuery = true)
+    Integer BookingSum();
 }
 

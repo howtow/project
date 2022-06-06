@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label>標籤</label>
-                <div id="tags" >
+                <div id="tags">
                     <input type="checkbox" class="tag" value="免費盥洗用品" />免費盥洗用品
                     <input type="checkbox" class="tag" value="毛巾" />毛巾
                     <input type="checkbox" class="tag" value="淋浴間" />淋浴間
@@ -137,7 +137,7 @@
                     tags += ","
                 }
             })
-            $('#tags').append('<input type="hidden" name="allTags" value="'+tags+'" />')
+            $('#tags').append('<input type="hidden" name="allTags1" value="'+tags+'" />')
             console.log(tags);
         })
 

@@ -34,6 +34,11 @@ public class CommentService {
         commentDao.deleteCommentByCommentId(id);
     }
 
+    //評論數
+    public Integer commentSum(){
+        return commentDao.commentSum();
+    }
+
 //    -------------------------------------------
 
     //廠商找到自己的評論

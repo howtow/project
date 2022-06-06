@@ -44,6 +44,10 @@ public class CustomerService {
         customerDao.deleteByUserId(id);
     }
 
+    public Integer customerSum(){
+        return customerDao.customerSum();
+    }
+
 }
 
 

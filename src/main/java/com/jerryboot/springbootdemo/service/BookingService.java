@@ -39,6 +39,11 @@ public class BookingService {
         Booking booking1 = bookingDao.save(booking);
     }
 
+    //訂單總額
+    public Integer bookingSum(){
+        return bookingDao.BookingSum();
+    }
+
 
 //    -------------------------------------------------
 //    廠商自己的訂單
