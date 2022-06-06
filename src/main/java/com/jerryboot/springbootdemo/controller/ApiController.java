@@ -1,13 +1,19 @@
 package com.jerryboot.springbootdemo.controller;
 
+import com.jerryboot.springbootdemo.model.Booking;
+import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -68,5 +74,14 @@ public class ApiController {
         Map<String, Integer> result=new HashMap<String,Integer>();
         result.put("comment", commentService.commentSum());
         return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @GetMapping("/api/booking")
+    @ResponseBody
+    public List<Booking> BookingManage(@RequestParam(name = "p",defaultValue = "1")Integer pageNumber){
+        Page<Booking> page = bookingService.findByPage1(pageNumber);
+        List<Booking> content = page.getContent();
+
+        return content;
     }
 }

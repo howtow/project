@@ -23,6 +23,12 @@ public class BookingService {
         Page<Booking> bookings = bookingDao.findAll(pageRequest);
         return bookings;
     }
+    //    根據頁數找到幾筆資料 顯示最近訂單
+    public Page<Booking> findByPage1(Integer pageNumber) {
+        Pageable pageRequest = PageRequest.of(pageNumber - 1, 10, Sort.Direction.DESC, "bookingId");
+        Page<Booking> bookings = bookingDao.findAll(pageRequest);
+        return bookings;
+    }
     //    刪除會員
     public void deleteBookingById(Integer id) {
         bookingDao.deleteByBookingId(id);

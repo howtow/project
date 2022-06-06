@@ -1,5 +1,7 @@
 package com.jerryboot.springbootdemo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -36,12 +38,15 @@ public class Room {
     @JoinColumn(name = "HotelID")
     private Hotel hotel;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
     private Set<Booking> booking = new LinkedHashSet<Booking>();
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
     private Set<Comment> comment = new LinkedHashSet<Comment>();
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "room", cascade = CascadeType.ALL)
     private Set<RoomImg> roomImg = new LinkedHashSet<RoomImg>();
 

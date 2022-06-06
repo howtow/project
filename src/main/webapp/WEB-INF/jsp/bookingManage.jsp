@@ -41,7 +41,7 @@
                     <thead>
                     <tr>
                         <td>訂單Id</td>
-                        <td>狀態</td>
+<%--                        <td>狀態</td>--%>
                         <td>訂單時間</td>
                         <td>入住幾天</td>
                         <td>訂單名字</td>
@@ -61,7 +61,7 @@
                         <tbody>
                         <tr>
                             <td>${oneBooking.bookingId}</td>
-                            <td>${oneBooking.state}</td>
+<%--                            <td>${oneBooking.state}</td>--%>
                             <td>${oneBooking.bookingTimes}</td>
                             <td>${oneBooking.dateOfStay}</td>
                             <td>${oneBooking.bookingName}</td>
