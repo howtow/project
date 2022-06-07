@@ -115,10 +115,10 @@
 
 
                     </div>
-            <h2>最近訂單</h2>
+            <h2 style="justify-content: center">最近訂單</h2>
             <div class="table-responsive">
                 <%--            <input type="text" value="搜尋欄位">--%>
-                <table class="table table-striped table-bordered table-primary" id="hotelTable">
+                <table class="table table-striped table-bordered table-primary" id="bookingTable">
                     <thead>
                     <tr>
                         <td>訂單Id</td>
@@ -245,22 +245,22 @@
                 dataType: 'json',
                 method: 'GET',
                 success: function (data) {
-                    let hotel_data = '';
+                    let booking_data = '';
                     $.each(data, function (key, value) {
-                        hotel_data += '<tr>';
-                        hotel_data += '<td>' + value.bookingId + '</td>';
+                        booking_data += '<tr>';
+                        booking_data += '<td>' + value.bookingId + '</td>';
                         // hotel_data += '<td>' + value.State + '</td>';
-                        hotel_data += '<td>' + value.bookingTimes + '</td>';
-                        hotel_data += '<td>' + value.dateOfStay + '</td>';
-                        hotel_data += '<td>' + value.bookingName + '</td>';
-                        hotel_data += '<td>' + value.email + '</td>';
-                        hotel_data += '<td>' + value.creditCard + '</td>';
-                        hotel_data += '<td>' + value.annotation+ '</td>';
-                        hotel_data += '<td>' + value.arriveTimes+ '</td>';
-                        hotel_data += '</tr>';
+                        booking_data += '<td>' + value.bookingTimes + '</td>';
+                        booking_data += '<td>' + value.dateOfStay + '</td>';
+                        booking_data += '<td>' + value.bookingName + '</td>';
+                        booking_data += '<td>' + value.email + '</td>';
+                        booking_data += '<td>' + value.creditCard + '</td>';
+                        booking_data += '<td>' + value.annotation+ '</td>';
+                        booking_data += '<td>' + value.arriveTimes+ '</td>';
+                        booking_data += '</tr>';
                     })
-                    console.log(hotel_data)
-                    $('#hotelTable').append(hotel_data);
+                    console.log(booking_data)
+                    $('#bookingTable').append(booking_data);
                 }
 
             })

@@ -28,5 +28,6 @@ public  interface BookingDao extends JpaRepository<Booking,Integer> {
     //訂單總額
     @Query(value = "select sum(cast(Room.price as int)) from dbo.Booking join dbo.Room on Booking.RoomID=Room.RoomID",nativeQuery = true)
     Integer BookingSum();
+
 }
 

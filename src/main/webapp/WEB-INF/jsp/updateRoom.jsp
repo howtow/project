@@ -68,9 +68,9 @@
                     <label>照片上傳</label>
                     <input type="file" class="form-control" name="pic" multiple="multiple" accept="image/*, .jpeg, .png, .gif, .jpeg" style="width: 300px" />
                 </div>
-<%--        <c:forEach var="oneImg" items="${roomImgByRoomID }">--%>
-<%--            <td><img src="${contextRoot}/image/${oneImg.roomImgId}"></td>--%>
-<%--        </c:forEach>--%>
+        <c:forEach var="oneImg" items="${roomImgByRoomID}">
+            <td><img src="${contextRoot}/downloadImage/${oneImg.roomImgId}"></td>
+        </c:forEach>
         </div>
         <div class="container">
             <div class="row justify-content-end">

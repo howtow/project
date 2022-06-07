@@ -23,7 +23,7 @@ public class RoomImgService {
     }
 
     public List<RoomImg> getRoomImgByRoomID(Integer id){
-        return roomImgDao.findImgByRoomID(id);
+        return roomImgDao.getALLImg(id);
     }
 
     public RoomImg getImgById(Integer id){

@@ -83,4 +83,20 @@ public class BookingController {
         return "redirect:firmBookingManage";
     }
 
+    //跳到廠商查看訂單
+    @GetMapping("editBooking1")
+    public String editBooking1(@RequestParam("bookingId") Integer id,Model model){
+        Booking booking = bookingService.getBookingById(id);
+        model.addAttribute("bookingBean" ,booking);
+
+        return "firmupdateBooking";
+
+    }
+    @PostMapping("editPostBooking1")
+    public ModelAndView editBooking1(ModelAndView msv){
+
+        msv.setViewName("redirect:firmBookingManage");
+        return msv;
+    }
+
 }

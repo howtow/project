@@ -21,6 +21,28 @@
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="${contextRoot}/css/manage.css">
+    <style>
+        .btn1 {
+            color: black;
+            justify-content: center;
+            background: linear-gradient(97deg, rgba(22, 160, 133, 1) 0%, rgba(243, 199, 83, 1) 31%, rgba(22, 160, 133, 1) 81%);
+            background-position: 125%;
+            background-size: 200% auto;
+            text-decoration: none;
+        }
+
+        .btn1:hover {
+              animation: shine 2s infinite;
+            text-decoration: none;
+          }
+
+        @keyframes shine {
+            to {
+                background-position: -70%;
+            //調整到我想要光線結束的地方
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -51,8 +73,8 @@
                         <td>入住時間</td>
 <%--                        <td>客戶ID</td>--%>
 <%--                        <td>飯店ID</td>--%>
-<%--                        <td>飯店ID</td>--%>
-<%--                        <td>編輯</td>--%>
+                        <td>確認訂單</td>
+                        <td>查看</td>
                         <td>刪除</td>
                     </tr>
                     </thead>
@@ -70,8 +92,10 @@
                             <td>${oneBooking.arriveTimes}</td>
 <%--                            <td>${oneBooking.userId}</td>--%>
 <%--                            <td>${oneBooking.hotelId}</td>--%>
-<%--                            <td>${oneBooking.roomId}</td>--%>
-<%--                            <td><a href="${contextRoot}/editBooking?bookingId=${oneBooking.bookingId}">編輯</a></td>--%>
+
+
+                            <td><a href="changeStatus?bookingId=${oneBooking.bookingId}" class="btn1">確認訂單</a></td>
+                            <td><a href="${contextRoot}/editBooking1?bookingId=${oneBooking.bookingId}">查看</a></td>
                             <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/firmDeleteBooking?bookingId=${oneBooking.bookingId}">刪除</a></td>
                         </tr>
                         </tbody>
@@ -105,5 +129,9 @@
 
 </div>
     </div>
+
+<script>
+    $()
+</script>
 </body>
 </html>

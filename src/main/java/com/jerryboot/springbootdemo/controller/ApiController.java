@@ -1,16 +1,15 @@
 package com.jerryboot.springbootdemo.controller;
 
 import com.jerryboot.springbootdemo.model.Booking;
+import com.jerryboot.springbootdemo.model.BookingDto;
 import com.jerryboot.springbootdemo.model.Hotel;
 import com.jerryboot.springbootdemo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -84,4 +83,14 @@ public class ApiController {
 
         return content;
     }
+
+    @GetMapping("changeStatus")
+    public ModelAndView postFirm(@RequestParam("bookingId") Integer id){
+        Booking byId = bookingService.getBookingById(id);
+        byId.setState("已確認");
+
+        bookingService.updateBooking(byId);
+        return new ModelAndView("redirect:firmBookingManage");
+    }
+
 }

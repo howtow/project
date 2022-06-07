@@ -65,13 +65,15 @@ public class RoomController {
     public String editRoom(Model model, @RequestParam("roomId") Integer id) {
         Room room = roomService.getRoomById(id);
         List<RoomImg> list = roomImgService.getRoomImgByRoomID(id);
+        System.out.println(list);
         model.addAttribute("roomBean", room);
         model.addAttribute("roomImgByRoomID", list);
         return "updateRoom";
     }
 
     //
-    @GetMapping("image/{i}")
+    @GetMapping("downloadImage/{i}")
+    @ResponseBody
     public ResponseEntity<byte[]> getImg(@PathVariable("i") Integer id){
         RoomImg img = roomImgService.getImgById(id);
         byte[] imgImg = img.getImg();
