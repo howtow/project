@@ -30,6 +30,7 @@ public interface HotelDao extends JpaRepository<Hotel,Integer> {
     @Query("from Hotel where HotelAccount=?1 and HotelPassword=?2")
     Hotel findByHotelAccountAndHotelPassword(String HotelAccount,String HotelPassword);
 
+    //旅館數
     @Query(value = "select count(*) from dbo.Hotel",nativeQuery = true)
     Integer hotelSum();
 

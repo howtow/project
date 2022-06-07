@@ -44,6 +44,7 @@ public class CustomerService {
         customerDao.deleteByUserId(id);
     }
 
+    // 會員數
     public Integer customerSum(){
         return customerDao.customerSum();
     }

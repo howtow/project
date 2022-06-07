@@ -23,6 +23,7 @@ public interface CustomerDao extends JpaRepository<Customer,Integer> {
             "like %?1%")
     Page<Customer> customerList(String keyword, Pageable pageable);
 
+    //會員數
     @Query(value = "select count(*) from dbo.Customer",nativeQuery = true)
     Integer customerSum();
 

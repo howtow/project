@@ -18,7 +18,7 @@ public interface CommentDao extends JpaRepository<Comment,Integer> {
     @Query("select c from Comment c where concat(c.comment, c.hotel.hotelName, c.room.roomName) like %?1%")
     Page<Comment> commentList(String keyword, Pageable pageable);
 
-
+    //評論數
     @Query(value = "select count(*) from dbo.Comment",nativeQuery = true)
     Integer commentSum();
 

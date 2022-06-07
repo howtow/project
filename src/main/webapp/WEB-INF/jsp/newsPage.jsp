@@ -154,9 +154,7 @@
                     let customerSum = '';
                     $.each(data, function () {
                         customerSum +=   data.customer  ;
-                        console.log(customerSum)
                     })
-                    console.log(customerSum)
                     $('#member').append(customerSum);
                 },
                 error: function (err) {

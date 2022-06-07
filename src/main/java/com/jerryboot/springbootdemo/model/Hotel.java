@@ -24,6 +24,12 @@ public class Hotel {
     @Column(name = "Address")
     private String add;
 
+    @Column(name = "Px")
+    private String px;
+
+    @Column(name = "Py")
+    private String py;
+
     @Column(name = "Region")
     private String region;
 
@@ -242,45 +248,51 @@ public class Hotel {
         this.booking = booking;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Hotel [hotelId=");
-        builder.append(hotelId);
-        builder.append(", hotelName=");
-        builder.append(hotelName);
-        builder.append(", description=");
-        builder.append(description);
-        builder.append(", add=");
-        builder.append(add);
-        builder.append(", region=");
-        builder.append(region);
-        builder.append(", town=");
-        builder.append(town);
-        builder.append(", Tel=");
-        builder.append(Tel);
-        builder.append(", pics=");
-        builder.append(pics);
-        builder.append(", picDIscribe=");
-        builder.append(picDIscribe);
-        builder.append(", serviceinfo=");
-        builder.append(serviceinfo);
-        builder.append(", parkinginfo=");
-        builder.append(parkinginfo);
-        builder.append(", totalNumberofRooms=");
-        builder.append(totalNumberofRooms);
-        builder.append(", lowestPrice=");
-        builder.append(lowestPrice);
-        builder.append(", ceilingPrice=");
-        builder.append(ceilingPrice);
-        builder.append(", HotelAccount=");
-        builder.append(HotelAccount);
-        builder.append(", HotelPassword=");
-        builder.append(HotelPassword);
-        builder.append(", AverageRating=");
-        builder.append(AverageRating);
-        builder.append("]");
-        return builder.toString();
+    public String getPx() {
+        return px;
     }
 
+    public void setPx(String px) {
+        this.px = px;
+    }
+
+    public String getPy() {
+        return py;
+    }
+
+    public void setPy(String py) {
+        this.py = py;
+    }
+
+    public void setAverageRating(Double averageRating) {
+        AverageRating = averageRating;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "hotelId=" + hotelId +
+                ", hotelName='" + hotelName + '\'' +
+                ", description='" + description + '\'' +
+                ", add='" + add + '\'' +
+                ", px='" + px + '\'' +
+                ", py='" + py + '\'' +
+                ", region='" + region + '\'' +
+                ", town='" + town + '\'' +
+                ", Tel='" + Tel + '\'' +
+                ", pics='" + pics + '\'' +
+                ", picDIscribe='" + picDIscribe + '\'' +
+                ", serviceinfo='" + serviceinfo + '\'' +
+                ", parkinginfo='" + parkinginfo + '\'' +
+                ", totalNumberofRooms=" + totalNumberofRooms +
+                ", lowestPrice=" + lowestPrice +
+                ", ceilingPrice=" + ceilingPrice +
+                ", HotelAccount='" + HotelAccount + '\'' +
+                ", HotelPassword='" + HotelPassword + '\'' +
+                ", AverageRating=" + AverageRating +
+                ", room=" + room +
+                ", comment=" + comment +
+                ", booking=" + booking +
+                '}';
+    }
 }

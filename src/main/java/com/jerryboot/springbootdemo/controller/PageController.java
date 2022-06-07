@@ -23,11 +23,6 @@ public class PageController {
 		return "about";
 	}
 
-	@GetMapping("/side")
-	public String side(){
-		return "sidebar";
-	}
-
 	@GetMapping("/adminLoginForm")
 	public String backLogin(){
 		return "adminLoginForm";

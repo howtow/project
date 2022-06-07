@@ -68,6 +68,8 @@ public class HotelService {
             return null;
         }
     }
+
+    //旅館數
     public Integer hotelSum(){
         return hotelDao.hotelSum();
     }

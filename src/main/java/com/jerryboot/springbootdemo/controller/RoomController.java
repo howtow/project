@@ -8,18 +8,21 @@ import com.jerryboot.springbootdemo.service.RoomImgService;
 import com.jerryboot.springbootdemo.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class RoomController {
@@ -61,9 +64,22 @@ public class RoomController {
     @GetMapping("/editRoom")
     public String editRoom(Model model, @RequestParam("roomId") Integer id) {
         Room room = roomService.getRoomById(id);
+        List<RoomImg> list = roomImgService.getRoomImgByRoomID(id);
         model.addAttribute("roomBean", room);
+        model.addAttribute("roomImgByRoomID", list);
         return "updateRoom";
     }
+
+    //
+    @GetMapping("image/{i}")
+    public ResponseEntity<byte[]> getImg(@PathVariable("i") Integer id){
+        RoomImg img = roomImgService.getImgById(id);
+        byte[] imgImg = img.getImg();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        return new ResponseEntity<byte[]>(imgImg  , headers, HttpStatus.OK);
+    }
+
 
     //更新房間資料
     @PostMapping("postEditRoom")
@@ -152,7 +168,10 @@ public class RoomController {
 
         }
 
+
     }
+
+
 
 //----------------------------------------------------------
 //    廠商用
