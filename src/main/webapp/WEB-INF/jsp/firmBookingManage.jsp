@@ -94,7 +94,7 @@
 <%--                            <td>${oneBooking.hotelId}</td>--%>
 
 
-                            <td><a href="changeStatus?bookingId=${oneBooking.bookingId}" class="btn1">確認訂單</a></td>
+                            <td><a href="changeStatus?bookingId=${oneBooking.bookingId}" class="btn1" onclick="return confirm('確認訂單')">確認訂單</a></td>
                             <td><a href="${contextRoot}/editBooking1?bookingId=${oneBooking.bookingId}">查看</a></td>
                             <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/firmDeleteBooking?bookingId=${oneBooking.bookingId}">刪除</a></td>
                         </tr>
@@ -108,7 +108,7 @@
                             <c:choose>
 
                                 <c:when  test="${page.number != pageNumber-1 }">
-                                    <a href="${contextRoot}/bookingManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
+                                    <a href="${contextRoot}/firmBookingManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
                                 </c:when>
 
 

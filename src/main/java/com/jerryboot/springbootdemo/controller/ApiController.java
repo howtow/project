@@ -84,7 +84,7 @@ public class ApiController {
         return content;
     }
 
-    @GetMapping("changeStatus")
+    @GetMapping("changeStatus/{p}")
     public ModelAndView postFirm(@RequestParam("bookingId") Integer id){
         Booking byId = bookingService.getBookingById(id);
         byId.setState("已確認");
