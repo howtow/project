@@ -65,38 +65,38 @@
             <div class="form-group">
                 <label>訂單時間</label>
                 <form:input type="text" class="form-control" id="customerPassword" path="bookingTimes" readonly="true"
-                            cssStyle="width: 300px"/>
+                            cssStyle="width: 300px" />
             </div>
             <div class="form-group">
                 <label>入住幾天</label>
                 <form:input type="number" class="form-control" id="customerName" aria-describedby="emailHelp"
-                            path="dateOfStay" cssStyle="width: 300px"/>
+                            path="dateOfStay" cssStyle="width: 300px" readonly="true"/>
             </div>
         </div>
         <div style="top:0;left: 0;" class="col-5 mt-3">
             <div class="form-group">
                 <label>訂單名字</label>
                 <form:input type="text" class="form-control" id="customerBirthday" path="bookingName"
-                            cssStyle="width: 300px"/>
+                            cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label>電子郵件</label>
-                <form:input type="email" class="form-control" id="customerPhone" path="email" cssStyle="width: 300px"/>
+                <form:input type="email" class="form-control" id="customerPhone" path="email" cssStyle="width: 300px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label>信用卡</label>
                 <form:input type="text" class="form-control" id="customerPhone" path="creditCard"
-                            cssStyle="width: 300px" pattern="[0-9]{13,16}"/>
+                            cssStyle="width: 300px" pattern="[0-9]{13,16}" readonly="true"/>
             </div>
             <div class="form-group">
                 <label>備註</label>
                 <form:input type="text" class="form-control" id="customerAddress" path="annotation"
-                            cssStyle="width: 500px"/>
+                            cssStyle="width: 500px" readonly="true"/>
             </div>
             <div class="form-group">
                 <label>入住時間</label>
                 <form:input type="text" class="form-control" id="customerCreditCard" path="arriveTimes"
-                            cssStyle="width: 300px"/>
+                            cssStyle="width: 300px" readonly="true"/>
             </div>
         </div>
         <div class="container">

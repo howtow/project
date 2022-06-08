@@ -40,16 +40,16 @@ public class BookingController {
 
     }
 
-//    更新訂單資料
+//    更新訂單資料 改成查看訂單資料
     @PostMapping("editPostBooking")
-    public ModelAndView editBooking(ModelAndView msv, @ModelAttribute(name = "bookingBean") Booking booking){
-        Booking booking1 = new Booking();
-
-        msv.getModel().put("bookingBean",booking1);
-
-        bookingService.updateBooking(booking1);
-        msv.setViewName("redirect:bookingManage");
-        return msv;
+    public ModelAndView editBooking(ModelAndView mav){
+//        Booking booking1 = new Booking();
+//
+//        msv.getModel().put("bookingBean",booking1);
+//
+//        bookingService.updateBooking(booking1);
+        mav.setViewName("redirect:bookingManage");
+        return mav;
     }
 
 //    刪除訂單

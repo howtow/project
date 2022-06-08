@@ -75,12 +75,12 @@
                         <c:choose>
 
                             <c:when  test="${page.number != pageNumber-1 }">
-                                <a href="${contextRoot}/roomManage1?p=${pageNumber}&roomKeyword=${roomKeyword}"><c:out value="${pageNumber}"></c:out></a>
+                                <a class="pageNumber" href="${contextRoot}/roomManage1?p=${pageNumber}&roomKeyword=${roomKeyword}"><c:out value="${pageNumber}"></c:out></a>
                             </c:when>
 
 
                             <c:otherwise>
-                                <c:out value="${pageNumber}"></c:out>
+                        <a class="pageNumber"><c:out value="${pageNumber}"></c:out></a>
                             </c:otherwise>
 
                         </c:choose>

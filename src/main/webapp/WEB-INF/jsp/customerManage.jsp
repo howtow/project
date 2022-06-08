@@ -27,85 +27,82 @@
     <div class="row">
         <div class="col-1">
         </div>
-        <div  style="top:0;left: 0;" class="col-11">
-            <form action="customerManage" >
-                <div class="search" >
-                    <label >
+        <div style="top:0;left: 0;" class="col-11">
+            <form action="customerManage">
+                <div class="search">
+                    <label>
                         <input type="search" name="customerKeyword" placeholder="搜尋">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </label>
                 </div>
             </form>
-            <table  class="table table-striped table-bordered table-secondary align-middle table-hover" id="customerTable">
-                <thead>
-                <tr>
-                    <td>UserID</td>
-                    <td>電子郵件(帳號)</td>
-                    <td>密碼</td>
-                    <td>姓名</td>
-                    <td>電話</td>
-                    <td>生日</td>
-                    <td>國家</td>
-                    <td>性別</td>
-<%--                    <td>住址</td>--%>
-<%--                    <td>信用卡</td>--%>
-                    <td>查看</td>
-                    <td>刪除</td>
-                </tr>
-                </thead>
-                <c:forEach var="oneCustomer" items="${customerList}">
-                    <tbody>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-secondary align-middle table-hover"
+                       id="customerTable">
+                    <thead>
                     <tr>
-                        <td>${oneCustomer.userId}</td>
-                        <td>${oneCustomer.email}</td>
-                        <td>${oneCustomer.password}</td>
-                        <td>${oneCustomer.userName}</td>
-                        <td>${oneCustomer.phone}</td>
-                        <td>${oneCustomer.birthday}</td>
-                        <td>${oneCustomer.nationality}</td>
-                        <td>${oneCustomer.gender}</td>
-<%--                        <td>${oneCustomer.address}</td>--%>
-<%--                        <td>${oneCustomer.creditCard}</td>--%>
-                        <td><a href="${contextRoot}/editCustomer?userId=${oneCustomer.userId}">查看</a></td>
-                        <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteCustomer?userId=${oneCustomer.userId}">刪除</a></td>
+                        <td>UserID</td>
+                        <td>電子郵件(帳號)</td>
+                        <td>密碼</td>
+                        <td>姓名</td>
+                        <td>電話</td>
+                        <td>生日</td>
+                        <td>國家</td>
+                        <td>性別</td>
+                        <%--                    <td>住址</td>--%>
+                        <%--                    <td>信用卡</td>--%>
+                        <td>查看</td>
+                        <td>刪除</td>
                     </tr>
-                    </tbody>
-                </c:forEach>
-            </table>
-            <div class="row justify-content-end">
-                <div class="col-12">
-                    <c:forEach var="pageNumber" begin="1" end="${page.totalPages}">
-                        <c:choose>
-
-                            <c:when  test="${page.number != pageNumber-1 }">
-                                <a class="pageNumber" href="${contextRoot}/customerManage?p=${pageNumber}&customerKeyword=${customerKeyword}"><c:out value="${pageNumber}"></c:out></a>
-                            </c:when>
-
-
-                            <c:otherwise>
-                                <a class="pageNumber"><c:out value="${pageNumber}"></c:out></a>
-                            </c:otherwise>
-
-                        </c:choose>
-                        <c:if test="${pageNumber != page.totalPages}">
-
-                        </c:if>
-
+                    </thead>
+                    <c:forEach var="oneCustomer" items="${customerList}">
+                        <tbody>
+                        <tr>
+                            <td>${oneCustomer.userId}</td>
+                            <td>${oneCustomer.email}</td>
+                            <td>${oneCustomer.password}</td>
+                            <td>${oneCustomer.userName}</td>
+                            <td>${oneCustomer.phone}</td>
+                            <td>${oneCustomer.birthday}</td>
+                            <td>${oneCustomer.nationality}</td>
+                            <td>${oneCustomer.gender}</td>
+                                <%--                        <td>${oneCustomer.address}</td>--%>
+                                <%--                        <td>${oneCustomer.creditCard}</td>--%>
+                            <td><a href="${contextRoot}/editCustomer?userId=${oneCustomer.userId}">查看</a></td>
+                            <td><a onclick="return confirm('確認刪除')"
+                                   href="${contextRoot}/deleteCustomer?userId=${oneCustomer.userId}">刪除</a></td>
+                        </tr>
+                        </tbody>
                     </c:forEach>
+                </table>
+                <div class="row justify-content-end">
+                    <div class="col-12">
+                        <c:forEach var="pageNumber" begin="1" end="${page.totalPages}">
+                            <c:choose>
+
+                                <c:when test="${page.number != pageNumber-1 }">
+                                    <a class="pageNumber"
+                                       href="${contextRoot}/customerManage?p=${pageNumber}&customerKeyword=${customerKeyword}"><c:out
+                                            value="${pageNumber}"></c:out></a>
+                                </c:when>
+
+
+                                <c:otherwise>
+                                    <a class="pageNumber"><c:out value="${pageNumber}"></c:out></a>
+                                </c:otherwise>
+
+                            </c:choose>
+                            <c:if test="${pageNumber != page.totalPages}">
+
+                            </c:if>
+
+                        </c:forEach>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
 <%--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"--%>

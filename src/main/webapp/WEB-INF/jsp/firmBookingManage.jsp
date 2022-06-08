@@ -63,13 +63,13 @@
                     <thead>
                     <tr>
                         <td>訂單Id</td>
-                        <td>狀態</td>
+                        <td style="width: 100px">狀態</td>
                         <td>訂單時間</td>
                         <td>入住幾天</td>
                         <td>訂單名字</td>
                         <td>電子郵件</td>
-                        <td>信用卡</td>
-                        <td>備註</td>
+<%--                        <td>信用卡</td>--%>
+<%--                        <td>備註</td>--%>
                         <td>入住時間</td>
 <%--                        <td>客戶ID</td>--%>
 <%--                        <td>飯店ID</td>--%>
@@ -82,13 +82,13 @@
                         <tbody>
                         <tr>
                             <td>${oneBooking.bookingId}</td>
-                            <td>${oneBooking.state}</td>
+                            <td style="color: green">${oneBooking.state}</td>
                             <td>${oneBooking.bookingTimes}</td>
                             <td>${oneBooking.dateOfStay}</td>
                             <td>${oneBooking.bookingName}</td>
                             <td>${oneBooking.email}</td>
-                            <td>${oneBooking.creditCard}</td>
-                            <td>${oneBooking.annotation}</td>
+<%--                            <td>${oneBooking.creditCard}</td>--%>
+<%--                            <td>${oneBooking.annotation}</td>--%>
                             <td>${oneBooking.arriveTimes}</td>
 <%--                            <td>${oneBooking.userId}</td>--%>
 <%--                            <td>${oneBooking.hotelId}</td>--%>
@@ -108,12 +108,12 @@
                             <c:choose>
 
                                 <c:when  test="${page.number != pageNumber-1 }">
-                                    <a href="${contextRoot}/firmBookingManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
+                                    <a class="pageNumber" href="${contextRoot}/firmBookingManage?p=${pageNumber}"><c:out value="${pageNumber}"></c:out></a>
                                 </c:when>
 
 
                                 <c:otherwise>
-                                    <c:out value="${pageNumber}"></c:out>
+                                    <a class="pageNumber"><c:out value="${pageNumber}"></c:out></a>
                                 </c:otherwise>
 
                             </c:choose>

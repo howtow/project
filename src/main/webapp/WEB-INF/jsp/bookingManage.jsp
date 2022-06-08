@@ -41,19 +41,19 @@
                     <thead>
                     <tr>
                         <td>訂單Id</td>
-<%--                        <td>狀態</td>--%>
+                        <td>狀態</td>
                         <td>訂單時間</td>
                         <td>入住幾天</td>
                         <td>訂單名字</td>
                         <td>電子郵件</td>
-                        <td>信用卡</td>
-                        <td>備註</td>
+<%--                        <td>信用卡</td>--%>
+<%--                        <td>備註</td>--%>
                         <td>入住時間</td>
                         <td>飯店名字</td>
 <%--                        <td>客戶ID</td>--%>
 <%--                        <td>飯店ID</td>--%>
 <%--                        <td>飯店ID</td>--%>
-                        <td>編輯</td>
+                        <td>查看</td>
                         <td>刪除</td>
                     </tr>
                     </thead>
@@ -61,19 +61,19 @@
                         <tbody>
                         <tr>
                             <td>${oneBooking.bookingId}</td>
-<%--                            <td>${oneBooking.state}</td>--%>
+                            <td>${oneBooking.state}</td>
                             <td>${oneBooking.bookingTimes}</td>
                             <td>${oneBooking.dateOfStay}</td>
                             <td>${oneBooking.bookingName}</td>
                             <td>${oneBooking.email}</td>
-                            <td>${oneBooking.creditCard}</td>
-                            <td>${oneBooking.annotation}</td>
+<%--                            <td>${oneBooking.creditCard}</td>--%>
+<%--                            <td>${oneBooking.annotation}</td>--%>
                             <td>${oneBooking.arriveTimes}</td>
                             <td>${oneBooking.hotel.hotelName}</td>
 <%--                            <td>${oneBooking.userId}</td>--%>
 <%--                            <td>${oneBooking.hotelId}</td>--%>
 <%--                            <td>${oneBooking.roomId}</td>--%>
-                            <td><a href="${contextRoot}/editBooking?bookingId=${oneBooking.bookingId}">編輯</a></td>
+                            <td><a href="${contextRoot}/editBooking?bookingId=${oneBooking.bookingId}">查看</a></td>
                             <td><a onclick="return confirm('確認刪除')" href="${contextRoot}/deleteBooking?bookingId=${oneBooking.bookingId}">刪除</a></td>
                         </tr>
                         </tbody>

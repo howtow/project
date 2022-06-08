@@ -16,13 +16,8 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
-<style>
-    #homeBackground{
-        background-color: #1c7430;
-        color: #1c7430;
-    }
-</style>
 <body>
 
 <%
@@ -107,7 +102,7 @@
                     <div class="job">管理員</div>
                 </div>
             </div>
-            <a href="${contextRoot}/adminLogout"><i class='bx bx-log-out' id="log-out"></i></a>
+            <a href="${contextRoot}/adminLogout"><i class="fa-solid fa-arrow-right-from-bracket" id="log-out"></i></a>
         </div>
     </div>
     <!-- ======管理員資訊 結束===== -->
